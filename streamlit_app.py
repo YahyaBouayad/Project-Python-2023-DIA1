@@ -136,4 +136,6 @@ if st.checkbox("Show cleaned data"):
     st.write(pers_data)
     st.markdown("Ther was no null data, so we had nothing to remove, we just removed the line where someone said that they have used Semeron. Wich is a fake drug used to get raid of the liar")
 
+st.title("Heat map of the data")
+st.markdown("We plot this heat map so we can visualise the correlation between data, it can give us idea of graphic we can make.")
 st.pyplot(heat_map_data(data))
