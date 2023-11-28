@@ -114,4 +114,8 @@ pers_data['Ethnie'] = ethnie
 
 # TITRE : 
 st.title("Data Analyse for the drug data ")
-st.markdown("Project made by \r Yahya Bouayad \r Hamza \r Joshua ")
+st.markdown("Project made by \r Yahya \r Hamza \r Joshua ")
+
+if st.checkbox("Show raw data"):
+    st.subheader('Drug Raw data used')
+    st.write(data)
