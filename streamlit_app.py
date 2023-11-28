@@ -113,4 +113,5 @@ pers_data['Ethnie'] = ethnie
 #%% Debut Page 
 
 # TITRE : 
-st.title("Data Analyse for the drig data ")
+st.title("Data Analyse for the drug data ")
+st.markdown("Project made by \r Yahya Bouayad \r Hamza \r Joshua ")
