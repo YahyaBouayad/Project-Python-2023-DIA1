@@ -145,5 +145,5 @@ st.markdown("Proportion of data for every Personnel information")
 
 selected_column = st.selectbox('Choisissez une colonne pour l\'analyse', info_col)
 if st.button('Afficher le graphique'):
-    fig = plot_proportion_bar(data, selected_column)
+    fig = plot_proportion_bar(pers_data, selected_column)
     st.pyplot(fig)
