@@ -139,3 +139,11 @@ if st.checkbox("Show cleaned data"):
 st.title("Heat map of the data")
 st.markdown("We plot this heat map so we can visualise the correlation between data, it can give us idea of graphic we can make.")
 st.pyplot(heat_map_data(data))
+
+st.title("... plot for analyse the simple data : ")
+st.markdown("Proportion of data for every Personnel information")
+
+selected_column = st.selectbox('Choisissez une colonne pour l\'analyse', data.columns)
+if st.button('Afficher le graphique'):
+    fig = plot_proportion_bar(data, selected_column)
+    st.pyplot(fig)
