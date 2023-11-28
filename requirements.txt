@@ -1,6 +1,6 @@
 altair
 pandas
 streamlit
-plotly==5.9.0
+plotly.express
 seaborn
 matplotlib
