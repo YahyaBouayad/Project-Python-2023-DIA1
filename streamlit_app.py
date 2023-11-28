@@ -128,3 +128,9 @@ We have 1800 individuals, which gives us a good data set to study.
         
         """
         )
+
+st.markdown("We cleaned the dataset and we were able to assign this representation to each value, for this we used the explanations in the description of the dataset.")
+if st.checkbox("Show cleaned data"):
+    st.subheader('Cleaned data used')
+    st.write(pers_data)
+    st.markdown("Ther was no null data, so we had nothing to remove, we just removed the line where someone said that they have used Semeron. Wich is a fake drug used to get raid of the liar")
