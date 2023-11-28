@@ -143,7 +143,7 @@ st.pyplot(heat_map_data(data))
 st.title("... plot for analyse the simple data : ")
 st.markdown("Proportion of data for every Personnel information")
 
-selected_column = st.selectbox('Choisissez une colonne pour l\'analyse', data.columns)
+selected_column = st.selectbox('Choisissez une colonne pour l\'analyse', info_col)
 if st.button('Afficher le graphique'):
     fig = plot_proportion_bar(data, selected_column)
     st.pyplot(fig)
