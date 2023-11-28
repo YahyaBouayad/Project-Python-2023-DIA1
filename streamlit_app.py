@@ -5,6 +5,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import seaborn as sns
+from fonction_project import *
 #%% Traitement fichier 
 fichier_data = 'drug_consumption.data'
 data = pd.read_csv(fichier_data, delimiter=',', header=0)
@@ -135,6 +136,4 @@ if st.checkbox("Show cleaned data"):
     st.write(pers_data)
     st.markdown("Ther was no null data, so we had nothing to remove, we just removed the line where someone said that they have used Semeron. Wich is a fake drug used to get raid of the liar")
 
-corr = data.corr()
-plt.figure(figsize=(20,10))
-sns.heatmap(corr, annot=True, vmin=-1)
+st.pyplot(heat_map_data(data))
