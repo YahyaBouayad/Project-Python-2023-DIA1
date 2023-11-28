@@ -119,3 +119,12 @@ st.markdown("Project made by \r Yahya \r Hamza \r Joshua ")
 if st.checkbox("Show raw data"):
     st.subheader('Drug Raw data used')
     st.write(data)
+    st.markdown(
+        """
+        The data here is made up of 31 columns, the first represents characteristics about the person such as age, education and others. Then there are the psychological characteristics of the person, and finally if he has consumed certain types of drugs ranging from chocolate to cocaine.
+We have 1800 individuals, which gives us a good data set to study.
+        
+        
+        
+        """
+        )
