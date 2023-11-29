@@ -6,51 +6,6 @@ import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-info_col = [
-    'Age', 
-    'Genre', 
-    'Education', 
-    'Pays',
-    'Ethnie',
-]
-
-caract_col = [
-    'Neuroticisme',
-    'Extraversion',
-    'Ouverture à l\'expérience',
-    'Amicalité',
-    'Conscience',
-    'Impulsivité',
-    'Recherche de sensations'
-]
-
-personne_col = info_col + caract_col
-
-drogues_col = [
-    'Consommation d\'alcool',
-    'Consommation d\'amphétamines',
-    'Consommation d\'amyl',
-    'Consommation de benzodiazepine',
-    'Consommation de café',
-    'Consommation de cannabis',
-    'Consommation de chocolat',
-    'Consommation de cocaïne',
-    'Consommation de crack',
-    'Consommation d\'ecstasy',
-    'Consommation d\'héroïne',
-    'Consommation de ketamine',
-    'Consommation de drogues légales',
-    'Consommation de LSD',
-    'Consommation de meth',
-    'Consommation de champignons magiques',
-    'Consommation de nicotine',
-    'Consommation de Semeron',
-    'Consommation de VSA'
-]
-
-drogues_autorisées = ['Consommation d\'alcool', 'Consommation de café', 'Consommation de chocolat', 'Consommation de nicotine']
-drogues_illégales = [i for i in drogues_col if i not in drogues_autorisées]
-col = personne_col + drogues_col
 
 def lecture_data():
     fichier_data = 'drug_consumption.data'
@@ -60,7 +15,7 @@ def lecture_data():
     data = data.set_index('ID')
     return data
 
-def pre_data(data):
+def pre_data(data,col,drogues_col,drogues_illégales):
     for i in drogues_col:
         data[i] = data[i].map({'CL0': 0, 'CL1': 1, 'CL2': 2, 'CL3': 3, 'CL4': 4, 'CL5': 5, 'CL6': 6})
     semerons = data[data['Consommation de Semeron'] != 0]
