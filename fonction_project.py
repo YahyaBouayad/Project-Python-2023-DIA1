@@ -286,3 +286,28 @@ def plot_drug_use_trends_by_age_pers_data(dataset, drug_name):
     fig.update_yaxes(title_text=f'Nombre de consommateurs de {drug_name}')
     
     return fig
+
+def plot_education_level_sunburst(dataset, drugs_list):
+
+    # Filtrage des données pour inclure uniquement les colonnes nécessaires
+    cols_to_use = ['Education'] + drugs_list
+    filtered_data = dataset[cols_to_use]
+
+    # Préparation des données pour le graphique sunburst
+    sunburst_data = []
+    for drug in drugs_list:
+        for level, count in filtered_data['Education'][filtered_data[drug] > 0].value_counts().items():
+            sunburst_data.append([drug, level, count])
+
+    # Conversion en DataFrame
+    sunburst_df = pd.DataFrame(sunburst_data, columns=['Drug', 'Education Level', 'Count'])
+    fig = px.sunburst(
+        sunburst_df, 
+        path=['Drug', 'Education Level'], 
+        values='Count',
+        color='Count',
+        title="Comparaison des niveaux d'éducation entre les consommateurs de différentes drogues"
+    )
+
+    return fig
+
