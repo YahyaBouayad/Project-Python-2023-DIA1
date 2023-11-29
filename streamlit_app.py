@@ -94,7 +94,14 @@ if st.button('Afficher le graphique'):
     st.pyplot(fig)
     st.plotly_chart(plot_pie_chart(pers_data,selected_column),theme="streamlit", use_container_width=True)
 
+st.markdown("Choix affichage complet")
+selected_column_a = st.selectbox('Choisissez la première colonne',drogues_col )
+selected_column_b = st.selectbox('Choisissez la deuxième colonne',info_col )
 
+# Affichage du graphique à barres en fonction des colonnes sélectionnées
+if st.button('Afficher le graphique'):
+    fig2 = plot_proportion_bar2(pers_data, selected_column_a, selected_column_b)
+    st.pyplot(fig2)
 
 st.markdown("Analyse des caracteres d'une personne moyenne qui consomme une drogue")
 selected_column = st.selectbox('Choisissez une colonne pour l\'analyse', drogues_col )
