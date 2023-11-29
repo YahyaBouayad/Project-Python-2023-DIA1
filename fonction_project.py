@@ -382,3 +382,21 @@ def pre_combinaison(dataset,drug_columns):
 
     all_levels_combinations['Combinations'] = all_levels_combinations['Combinations'].apply(lambda x: shorten_drug_names(x, name_mapping))
     return all_levels_combinations
+
+def frequence_combinaison(all_levels_combinations):
+    freq_combinations = all_levels_combinations.groupby(['Combinations', 'Taux d\'addiction']).size().reset_index(name='Frequency')
+
+    # Trier les combinaisons par fréquence
+    sorted_combinations = freq_combinations.sort_values(by='Frequency', ascending=False)
+    sorted_combinations=sorted_combinations.head(20)
+    
+    # Création du graphique en barres
+    fig = px.bar(
+        sorted_combinations, 
+        x='Combinations', 
+        y='Frequency', 
+        color='Taux d\'addiction', 
+        title='Fréquence des Combinaisons les Plus Présentes par Niveau d\'Addiction'
+    )
+    fig.update_layout(xaxis_title="Combinaisons", yaxis_title="Fréquence", xaxis={'categoryorder':'total descending'})
+    return fig
