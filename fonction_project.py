@@ -175,24 +175,32 @@ def plot_user_counts_per_drug_combined(data, drogues_col):
     plt.tight_layout()  # Adjust layout to prevent overlapping
     return plt
 
-def plot_user_counts_for_drug(data, drug_name):
-    # Create a copy of the DataFrame to avoid modifying the original
-    copy_df = data.copy()
+def plot_proportion_bar_drug(dataset, column):
+    consommateurs = dataset[dataset[column] >= 0]
+    
+    proportion_consommateurs = consommateurs[column].value_counts(normalize=True).sort_index()
 
-    # Create a new binary column
-    col_name = 'User_' + drug_name.replace(" ", "_")
-    copy_df[col_name] = (copy_df[drug_name] > 0).astype(int)
+    couleurs = ['skyblue', 'lightcoral', 'gold', 'lightgreen', 'lightsalmon', 'mediumpurple']
 
-    # Create a countplot for the specified drug
-    plt.figure(figsize=(8, 5))
-    ax = sns.countplot(x=col_name, data=copy_df)
+    plt.figure(figsize=(12, 8))
 
-    # Customize the plot to remove y-axis label and x-axis ticks
-    ax.set(yticklabels=[])
-    ax.set_xticks([])
+    bars = plt.bar(proportion_consommateurs.index, proportion_consommateurs, color='darkorange', label='Consommateurs', alpha=0.7)
 
-    plt.title(f'Users vs Non-Users - {drug_name}')
-    return plt
+    for i, value in enumerate(proportion_consommateurs):
+        plt.text(i, value + 0.01, f'{value:.2%}', ha='center', va='bottom', fontsize=10, color='darkorange')
+
+    plt.title(f'Proportion de la population selon leur {column}', fontsize=16)
+    plt.xlabel('Fréquence de consommation', fontsize=14)
+    plt.ylabel('Proportion de la population', fontsize=14)
+    
+    labels = ['Jamais consommé', 'Pas ces 10 dernières années', 'Une fois en 10 ans', 'Une fois par an', 'Une fois par mois', 'Une fois par semaine', 'Tous les jours']
+    
+    plt.xticks(range(len(labels)), labels, rotation=45, ha='right', fontsize=12)
+
+    plt.yticks(fontsize=12)
+    plt.legend()
+    plt.show()
+
 
 def radar_chart_consommation_drogue(data, drogue,caract_col, consommateurs=True):
     
