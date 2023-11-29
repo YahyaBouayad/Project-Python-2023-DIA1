@@ -242,7 +242,8 @@ def profil_drogue_radar(pers_data,drug_columns,personality_traits):
         if not regular_consumers.empty:
             average_profile = regular_consumers[personality_traits].mean()
             average_profile['Drug'] = drug  # Ajouter le nom de la drogue
-            average_profiles = average_profiles.append(average_profile, ignore_index=True)
+            average_profiles = pd.concat([average_profiles, average_profile.to_frame().T], ignore_index=True)
+
 
     # Créer un graphique radar pour chaque drogue
     fig = go.Figure()
