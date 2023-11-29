@@ -149,5 +149,11 @@ with col2:
 st.markdown("Pour une vue d'ensemble:")
 st.plotly_chart(profil_drogue_radar(pers_data,drogues_col,caract_col),theme="streamlit", use_container_width=True)
 
+###########################################################################################################################
 
-
+st.subheader("Tendance de consomation selon la tranche d'age :sunglasses:")
+col1, col2 = st.columns(2)
+with col1:
+    selected_column_drug = st.selectbox('Choisissez la drogue à etudier ', drogues_col )
+with col2:
+    st.plotly_chart(plot_drug_use_trends_by_age_pers_data(pers_data,selected_column_drug),theme="streamlit", use_container_width=True)
