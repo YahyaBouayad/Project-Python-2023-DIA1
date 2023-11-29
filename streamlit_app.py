@@ -87,11 +87,11 @@ st.title("Heat map of the data")
 st.markdown("We plot this heat map so we can visualize the correlation between data, it can give us an idea of which kind of graphics we could make.")
 st.pyplot(heat_map_data(data))
 #################################################################
-st.title("... plot for analyse the simple data : ")
-st.markdown("Proportion of data for every Personnel information")
+st.title("General analysis of the surveyed people : ")
+st.markdown("So let's take a look at the general information we talked about just before.")
 ####################################################################
 
-selected_column = st.selectbox('Choisissez une colonne pour l\'analyse', info_col)
+selected_column = st.selectbox('Choose a column to plot', info_col)
 tab1, tab2 = st.tabs(["Bar exemple", "Pie chart Exemple"])
 with tab1:
     fig = plot_proportion_bar(pers_data, selected_column)
@@ -103,20 +103,20 @@ with tab2:
 
 ##############################################################################
 
-st.markdown("Choix affichage complet")
-selected_column_a = st.selectbox('Choisissez la première colonne',drogues_col )
-selected_column_b = st.selectbox('Choisissez la deuxième colonne',info_col )
+st.markdown("2-columns graph")
+selected_column_a = st.selectbox('Choose the first column',drogues_col )
+selected_column_b = st.selectbox('Choose the second column',info_col )
 # Affichage du graphique à barres en fonction des colonnes sélectionnées
-if st.button('Afficher le graphe'):
+if st.button('Show graph'):
     fig2 = plot_proportion_bar2(pers_data, selected_column_a, selected_column_b)
     st.pyplot(fig2)
 
 #######################################################################################
-st.markdown("User count for different drogues ")
+st.markdown("User count for differents drugs")
 st.pyplot(plot_user_counts_per_drug_combined(data,drogues_col))
 st.markdown("And for more detail :")
-selected_column_details = st.selectbox('Choisissez la deuxième colonne',drogues_col )
-on = st.toggle('Afficher les details:')
+selected_column_details = st.selectbox('Choose the second column',drogues_col )
+on = st.toggle('Show graph')
 
 if on:
     st.pyplot(plot_user_counts_for_drug(data,selected_column_details))
