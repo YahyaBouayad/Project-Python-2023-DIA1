@@ -106,6 +106,9 @@ if st.button('Afficher le graphe'):
     st.pyplot(fig2)
 #######################################################################################
 
+
+#######################################################################################
+st.title("Analyse approfondie :")
 st.markdown("Analyse des caracteres d'une personne moyenne qui consomme une drogue")
 selected_column_drogue = st.selectbox('Choisissez une colonne pour l\'analyse', drogues_col )
 
