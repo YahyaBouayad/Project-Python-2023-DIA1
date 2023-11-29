@@ -84,9 +84,10 @@ if st.checkbox("Show cleaned data"):
 st.title("Heat map of the data")
 st.markdown("We plot this heat map so we can visualise the correlation between data, it can give us idea of graphic we can make.")
 st.pyplot(heat_map_data(data))
-
+#################################################################
 st.title("... plot for analyse the simple data : ")
 st.markdown("Proportion of data for every Personnel information")
+####################################################################
 
 selected_column = st.selectbox('Choisissez une colonne pour l\'analyse', info_col)
 if st.button('Afficher le graphique'):
@@ -94,14 +95,16 @@ if st.button('Afficher le graphique'):
     st.pyplot(fig)
     st.plotly_chart(plot_pie_chart(pers_data,selected_column),theme="streamlit", use_container_width=True)
 
+##############################################################################
+
 st.markdown("Choix affichage complet")
 selected_column_a = st.selectbox('Choisissez la première colonne',drogues_col )
 selected_column_b = st.selectbox('Choisissez la deuxième colonne',info_col )
-
 # Affichage du graphique à barres en fonction des colonnes sélectionnées
-if st.button('Afficher le graphique'):
+if st.button('Afficher le graphe'):
     fig2 = plot_proportion_bar2(pers_data, selected_column_a, selected_column_b)
     st.pyplot(fig2)
+#######################################################################################
 
 st.markdown("Analyse des caracteres d'une personne moyenne qui consomme une drogue")
 selected_column_drogue = st.selectbox('Choisissez une colonne pour l\'analyse', drogues_col )
