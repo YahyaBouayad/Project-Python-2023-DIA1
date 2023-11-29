@@ -144,4 +144,8 @@ with col1:
 with col2:
     st.pyplot(radar_chart_consommation_drogue(pers_data,selected_column_drogue,caract_col,False))
 
+st.markdown("Pour une vue d'ensemble:")
+st.plotly_chart(profil_drogue_radar(pers_data,drogues_col,caract_col),theme="streamlit", use_container_width=True)
+
+
 
