@@ -135,3 +135,42 @@ def plot_correlation_matrix(dataset, columns):
     plt.title('Matrice de Corrélation', fontsize=16)
     return plt
 
+def plot_user_counts_per_drug_combined(data, drogues_col):
+    # Create a copy of the DataFrame to avoid modifying the original
+    copy_df = data.copy()
+
+    # Set up the plot
+    fig, ax = plt.subplots(figsize=(16, 8))
+
+    # Loop through each drug and create a countplot
+    for drogue_col in drogues_col:
+        # Create a new binary column
+        copy_df['User_' + drogue_col.replace(" ", "_")] = (copy_df[drogue_col] > 0).astype(int)
+
+    # Combine all the user count columns into a single DataFrame
+    user_counts_df = copy_df[[col for col in copy_df.columns if 'User_' in col]]
+
+    # Calculate total count for each user type (user and non-user)
+    total_counts = user_counts_df.sum()
+
+    # Calculate percentage for each user type
+    percentages = total_counts / len(copy_df) * 100
+
+    # Plot grouped bar chart
+    user_counts_df.sum().plot(kind='bar', color=['blue', 'orange'], ax=ax, position=0.5, width=0.4, label='Users')
+    (1 - user_counts_df).sum().plot(kind='bar', color=['orange', 'blue'], ax=ax, position=-0.5, width=0.4, label='Non-Users')
+
+    # Annotate with percentages (rotated 90 degrees)
+    for i, count in enumerate(total_counts):
+        ax.text(i, count + 1, f"{count}\n({percentages[i]:.2f}%)", ha='center', va='bottom', rotation=90)
+
+    # Set labels and title
+    ax.set_ylabel('Count')
+    ax.set_xlabel('Drug')
+    ax.set_title('User Counts for Different Drugs')
+
+    # Add legend
+    ax.legend()
+
+    plt.tight_layout()  # Adjust layout to prevent overlapping
+    return plt
