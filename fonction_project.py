@@ -311,3 +311,74 @@ def plot_education_level_sunburst(dataset, drugs_list):
 
     return fig
 
+def pre_combinaison(dataset,drug_columns):
+    def get_drug_combinations(dataset,drug_columns):
+        def get_drug_combinations_at_level(dataset, level, drug_columns):
+    
+            # Filtrage du dataset pour inclure uniquement les individus avec une consommation de niveau spécifié
+            filtered_data = dataset.copy()
+            for drug in drug_columns:
+                filtered_data[drug] = filtered_data[drug].apply(lambda x: 1 if x == level else 0)
+    
+            # Identification des combinaisons pour chaque individu
+            filtered_data['Combinations'] = filtered_data[drug_columns].apply(
+                lambda row: '-'.join(row.index[row == 1]) if row.sum() >= 2 else '', axis=1
+            )
+            filtered_data["Taux d'addiction"] = level
+    
+            # Filtrage pour exclure les lignes avec des combinaisons vides ou contenant une seule drogue
+            filtered_data = filtered_data[filtered_data['Combinations'] != '']
+    
+            return filtered_data[['Combinations', "Taux d'addiction"]]
+    
+    
+    
+        all_levels_combinations = pd.DataFrame()
+    
+        # Boucle sur les niveaux de consommation de 1 à 6
+        for level in range(2, 7):
+            level_combinations = get_drug_combinations_at_level(dataset, level, drug_columns)
+            all_levels_combinations = pd.concat([all_levels_combinations, level_combinations], ignore_index=True)
+    
+        # Filtrer pour ne conserver que les combinaisons présentes au moins deux fois
+        all_levels_combinations = all_levels_combinations.groupby('Combinations').filter(lambda x: len(x) >= 2)
+    
+        return all_levels_combinations
+    
+    # Exemple d'utilisation
+    all_levels_combinations = get_drug_combinations(dataset, drug_columns)
+
+
+    def shorten_drug_names(combination, mapping):
+        
+        # Séparer la combinaison en drogues individuelles
+        drugs = combination.split('-')
+        
+        # Remplacer chaque nom long par son équivalent court
+        short_names = [mapping[drug] if drug in mapping else drug for drug in drugs]
+        return '-'.join(short_names)
+    
+    name_mapping = {
+        "Consommation d'alcool": "alcool",
+        "Consommation d'amphétamines": "amphétamines",
+        "Consommation d'amyl": "amyl",
+        "Consommation de benzodiazepine": "benzodiazepine",
+        "Consommation de café": "café",
+        "Consommation de cannabis": "cannabis",
+        "Consommation de chocolat": "chocolat",
+        "Consommation de cocaïne": "cocaïne",
+        "Consommation de crack": "crack",
+        "Consommation d'ecstasy": "ecstasy",
+        "Consommation d'héroïne": "héroïne",
+        "Consommation de ketamine": "ketamine",
+        "Consommation de drogues légales": "drogues légales",
+        "Consommation de LSD": "LSD",
+        "Consommation de meth": "meth",
+        "Consommation de champignons magiques": "champignons magiques",
+        "Consommation de nicotine": "nicotine",
+        "Consommation de Semeron": "Semeron",
+        "Consommation de VSA": "VSA"
+    }
+
+    all_levels_combinations['Combinations'] = all_levels_combinations['Combinations'].apply(lambda x: shorten_drug_names(x, name_mapping))
+    return all_levels_combinations
