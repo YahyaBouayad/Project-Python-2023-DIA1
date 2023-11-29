@@ -80,11 +80,11 @@ st.markdown("We read the documentation and thus, we were able to rename the colu
 if st.checkbox("Show cleaned data"):
     st.subheader('Cleaned data used')
     st.write(pers_data)
-    st.markdown("Ther was no null data, so we had nothing to remove, we just removed the line where someone said that they have used Semeron. Wich is a fake drug used to get raid of the liar")
+    st.markdown("Ther was no null data, so we had nothing to remove. However, we managed to remove all of the users that tried to trick the study by saying they were Semerons consumers, whereas Semeron is a fake drug. In total, they were barely ten.")
 
 
 st.title("Heat map of the data")
-st.markdown("We plot this heat map so we can visualise the correlation between data, it can give us idea of graphic we can make.")
+st.markdown("We plot this heat map so we can visualize the correlation between data, it can give us an idea of which kind of graphics we could make.")
 st.pyplot(heat_map_data(data))
 #################################################################
 st.title("... plot for analyse the simple data : ")
