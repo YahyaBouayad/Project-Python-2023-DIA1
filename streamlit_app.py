@@ -94,5 +94,5 @@ if st.button('Afficher le graphique'):
     st.pyplot(fig)
 
 st.markdown("Analyse des caracteres d'une personne moyenne qui consomme une drogue")
-selected_column = st.selectbox('Choisissez une colonne pour l\'analyse', drogues_col)
+selected_column = st.selectbox('Choisissez une colonne pour l\'analyse', drogues_col )
 
