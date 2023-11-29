@@ -229,3 +229,42 @@ def radar_chart_consommation_drogue(data, drogue,caract_col, consommateurs=True)
 
     # Afficher le graphique
     return plt
+
+def profil_drogue_radar(pers_data,drug_columns,personality_traits):
+    average_profiles = pd.DataFrame()
+
+    # Boucle pour calculer les moyennes pour chaque drogue
+    for drug in drug_columns:
+        # Filtrer les consommateurs réguliers
+        regular_consumers = pers_data[pers_data[drug] >= 4]
+
+        # Calculer la moyenne des traits de personnalité
+        if not regular_consumers.empty:
+            average_profile = regular_consumers[personality_traits].mean()
+            average_profile['Drug'] = drug  # Ajouter le nom de la drogue
+            average_profiles = average_profiles.append(average_profile, ignore_index=True)
+
+    # Créer un graphique radar pour chaque drogue
+    fig = go.Figure()
+
+    # Ajouter une ligne pour chaque drogue
+    for drug in average_profiles['Drug'].unique():
+        drug_data = average_profiles[average_profiles['Drug'] == drug]
+        fig.add_trace(go.Scatterpolar(
+            r=drug_data[personality_traits].values[0],
+            theta=personality_traits,
+            fill='toself',
+            name=drug
+        ))
+
+    # Améliorer la mise en page
+    fig.update_layout(
+        polar=dict(
+            radialaxis=dict(
+                visible=True,
+                range=[0, 1]  # Assurez-vous que cette plage correspond à votre échelle de données
+            )),
+        showlegend=True,
+        title='Comparaison des profils de personnalité moyens des consommateurs réguliers de différentes drogues'
+    )
+    return fig
