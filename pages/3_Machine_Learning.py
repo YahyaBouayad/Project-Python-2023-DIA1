@@ -19,9 +19,12 @@ from sklearn.metrics import mean_squared_error,r2_score
 import warnings
 warnings.filterwarnings('ignore')
 
+st.write(data)
+"""
 features = data[['Age','Genre', 'Education','Neuroticisme', 'Extraversion', 'Ouverture à l\'expérience', 'Amicalité', 'Conscience', 'Impulsivité', 'Recherche de sensations']]  # Ajoutez ici d'autres caractéristiques pertinentes
 target = data['Consommation de cannabis']
 prediction_training(features,target,SVC())
 
 st.title("Machine Learning work:")
 st.markdown("The objectif of our Machin learning training is to determine if we can find is someone use or used one of the drugs using her Information and his caracter. ")
+"""
