@@ -193,3 +193,39 @@ def plot_user_counts_for_drug(data, drug_name):
 
     plt.title(f'Users vs Non-Users - {drug_name}')
     return plt
+
+def radar_chart_consommation_drogue(data, drogue,caract_col, consommateurs=True):
+    
+    # Filtrer les lignes en fonction de la consommation
+    if consommateurs:
+        data_filtre = data[data[drogue] > 1]
+    else:
+        data_filtre = data[data[drogue] < 1]
+
+    # Calculer la moyenne pour chaque caractéristique
+    moyenne_caracteristiques = data_filtre[caract_col].mean()
+
+    # Normaliser les valeurs pour les utiliser dans la radar chart
+    moyenne_normalisee = (moyenne_caracteristiques - moyenne_caracteristiques.min()) / (moyenne_caracteristiques.max() - moyenne_caracteristiques.min())
+
+    # Créer un tableau de valeurs pour chaque angle de la radar chart
+    angles = np.linspace(0, 2 * np.pi, len(caract_col), endpoint=False)
+
+    # Ajouter la première valeur à la fin pour fermer le cercle
+    moyenne_normalisee = np.concatenate((moyenne_normalisee, [moyenne_normalisee[0]]))
+    angles = np.concatenate((angles, [angles[0]]))
+
+    # Créer le graphique en radar avec une zone de couleur rouge
+    fig, ax = plt.subplots(figsize=(8, 8), subplot_kw=dict(polar=True))
+    ax.fill(angles, moyenne_normalisee, color='red', alpha=0.5)
+
+    # Ajouter des étiquettes pour chaque caractéristique
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(caract_col)
+
+    # Ajouter un titre en fonction de la consommation
+    titre = f'Radar Chart - {drogue}' if consommateurs else f'Radar Chart - Non {drogue}'
+    plt.title(titre, size=16, y=1.1)
+
+    # Afficher le graphique
+    return plt
