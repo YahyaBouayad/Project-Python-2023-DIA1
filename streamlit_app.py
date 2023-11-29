@@ -165,4 +165,8 @@ multi_options_choisies = st.multiselect("Choisissez vos options :", options_disp
 st.plotly_chart(plot_education_level_sunburst(pers_data,multi_options_choisies),theme="streamlit",use_container_width=True)
 
 #######################################################
+all_dat_combinaision=pre_combinaison(pers_data,drogues_col)
+st.markdown("test")
+st.write(all_dat_combinaision)
+#######################################################
 st.title("Salam ou bien salut on c quitter sur c mot ptdrr t qui")
