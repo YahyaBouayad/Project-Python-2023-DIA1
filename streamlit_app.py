@@ -171,3 +171,28 @@ st.write(all_dat_combinaision)
 st.plotly_chart(frequence_combinaison(all_dat_combinaision),theme="streamlit",use_container_width=True)
 #######################################################
 st.title("Salam ou bien salut on c quitter sur c mot ptdrr t qui")
+def page_1():
+    st.header("Page 1")
+    # Contenu de la Page 1
+
+def page_2():
+    st.header("Page 2")
+    # Contenu de la Page 2
+
+def page_3():
+    st.header("Page 3")
+    # Contenu de la Page 3
+
+# Création du menu de navigation
+pages = {
+    "Page 1": page_1,
+    "Page 2": page_2,
+    "Page 3": page_3
+}
+
+st.sidebar.title("Navigation")
+selection = st.sidebar.radio("Aller à:", list(pages.keys()))
+
+# Appeler la fonction de la page sélectionnée
+page = pages[selection]
+page()
