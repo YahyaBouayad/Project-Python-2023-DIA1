@@ -199,7 +199,7 @@ def plot_proportion_bar_drug(dataset, column):
 
     plt.yticks(fontsize=12)
     plt.legend()
-    plt.show()
+    return plt
 
 
 def radar_chart_consommation_drogue(data, drogue,caract_col, consommateurs=True):
