@@ -269,3 +269,20 @@ def profil_drogue_radar(pers_data,drug_columns,personality_traits):
         title='Comparaison des profils de personnalité moyens des consommateurs réguliers de différentes drogues'
     )
     return fig
+
+def plot_drug_use_trends_by_age_pers_data(dataset, drug_name):
+    
+    if drug_name not in dataset.columns:
+        raise ValueError("Le nom de la drogue spécifié n'est pas valide.")
+    grouped_data = dataset.groupby("Age")[drug_name].value_counts().unstack().fillna(0)
+
+    # Création d'un graphique en ligne
+    fig = px.line(
+        grouped_data, 
+        title=f"Tendances de {drug_name} par catégories d'âge"
+    )
+    
+    fig.update_xaxes(title_text='Catégorie d\'âge')
+    fig.update_yaxes(title_text=f'Nombre de consommateurs de {drug_name}')
+    
+    return fig
