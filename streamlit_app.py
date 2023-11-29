@@ -64,19 +64,19 @@ pers_data=pre_data(data,col,drogues_col,drogues_illégales)
 
 # TITRE : 
 st.title("Data Analyse for the drug data ")
-st.markdown("Project made by \r Yahya \r Hamza \r Joshua ")
+st.markdown("Project made by \n Yahya BOUAYAD,\n Hamza HALINE\n et Joshua BORNET")
 
 if st.checkbox("Show raw data"):
     st.subheader('Drug Raw data used')
     st.write(data)
     st.markdown(
         """
-        The data here is made up of 31 columns, the first represents characteristics about the person such as age, education and others. Then there are the psychological characteristics of the person, and finally if he has consumed certain types of drugs ranging from chocolate to cocaine.
+        The dataset here is made up of 31 columns, the first represents some global characteristics about the person such as his age, education and others. Then comes some psychological aspects of the person, and the last part of the dataset is about what kind of addiction the person has, from chocolate to cocaine.
 We have 1800 individuals, which gives us a good data set to study.
 
         """
         )
-st.markdown("We cleaned the dataset and we were able to assign this representation to each value, for this we used the explanations in the description of the dataset.")
+st.markdown("We read the documentation and thus, we were able to rename the columns and modify them to make their content readable by everybody.")
 if st.checkbox("Show cleaned data"):
     st.subheader('Cleaned data used')
     st.write(pers_data)
