@@ -18,13 +18,13 @@ info_col = [
 ]
 
 caract_col = [
-    'Neuroticisme',
-    'Extraversion',
-    'Ouverture à l\'expérience',
-    'Amicalité',
-    'Conscience',
-    'Impulsivité',
-    'Recherche de sensations'
+    'Névrotique',
+    'Extraverti',
+    'Ouvert à l\'expérience',
+    'Amical',
+    'Consciencieux',
+    'Imuplsif',
+    'En recherche de sensations'
 ]
 
 personne_col = info_col + caract_col
