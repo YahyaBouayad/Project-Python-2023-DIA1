@@ -90,10 +90,14 @@ st.markdown("Proportion of data for every Personnel information")
 ####################################################################
 
 selected_column = st.selectbox('Choisissez une colonne pour l\'analyse', info_col)
-if st.button('Afficher le graphique'):
+tab1, tab2 = st.tabs(["Bar exemple", "Pie chart Exemple"])
+with tab1:
     fig = plot_proportion_bar(pers_data, selected_column)
     st.pyplot(fig)
+with tab2:
     st.plotly_chart(plot_pie_chart(pers_data,selected_column),theme="streamlit", use_container_width=True)
+   
+    
 
 ##############################################################################
 
