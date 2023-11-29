@@ -128,8 +128,8 @@ mon_dictionnaire = {
     "Drogues": drogues_col
 }
 
-st.markdown("Analyse de la matrice de correlation selon une colonne choisi")
-cle_choisie = st.selectbox("Choisissez une clé :", list(mon_dictionnaire.keys()))
+st.markdown("Correlation matrix analysis based on a group of column")
+cle_choisie = st.selectbox("Choose a key :", list(mon_dictionnaire.keys()))
 st.pyplot(plot_correlation_matrix(data,mon_dictionnaire[cle_choisie]))
 ################################################################################
 
@@ -154,7 +154,7 @@ st.plotly_chart(profil_drogue_radar(pers_data,drogues_col,caract_col),theme="str
 st.subheader("Tendance de consomation selon la tranche d'age :sunglasses:")
 col1, col2 = st.columns([1, 2])
 with col1:
-    selected_column_drug = st.selectbox('Choisissez la drogue à etudier ', drogues_col )
+    selected_column_drug = st.selectbox('Choose a drug :', drogues_col )
 with col2:
     st.plotly_chart(plot_drug_use_trends_by_age_pers_data(pers_data,selected_column_drug),theme="streamlit", use_container_width=True)
 
@@ -165,7 +165,7 @@ multi_options_choisies = st.multiselect("Choisissez vos options :", options_disp
 st.plotly_chart(plot_education_level_sunburst(pers_data,multi_options_choisies),theme="streamlit",use_container_width=True)
 
 #######################################################
-all_dat_combinaision=pre_combinaison(pers_data,drogues_col)
+all_dat_combinaision=pre_combinaison(pers_data,drogues_illégales)
 st.markdown("Combinaison de drogue : ")
 st.write(all_dat_combinaision)
 st.plotly_chart(frequence_combinaison(all_dat_combinaision),theme="streamlit",use_container_width=True)
