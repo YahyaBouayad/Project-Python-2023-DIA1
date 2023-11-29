@@ -119,7 +119,7 @@ selected_column_details = st.selectbox('Choose the second column',drogues_col )
 on = st.toggle('Show graph')
 
 if on:
-    st.pyplot(plot_user_counts_for_drug(data,selected_column_details))
+    st.pyplot(plot_proportion_bar_drug(data,selected_column_details))
 
 #######################################################################################
 mon_dictionnaire = {
@@ -166,7 +166,8 @@ st.plotly_chart(plot_education_level_sunburst(pers_data,multi_options_choisies),
 
 #######################################################
 all_dat_combinaision=pre_combinaison(pers_data,drogues_col)
-st.markdown("test")
+st.markdown("Combinaison de drogue : ")
 st.write(all_dat_combinaision)
+st.plotly_chart(frequence_combinaison(all_dat_combinaision),theme="streamlit",use_container_width=True)
 #######################################################
 st.title("Salam ou bien salut on c quitter sur c mot ptdrr t qui")
