@@ -118,6 +118,8 @@ mon_dictionnaire = {
 st.markdown("Analyse de la matrice de correlation selon une colonne choisi")
 cle_choisie = st.selectbox("Choisissez une clé :", list(mon_dictionnaire.keys()))
 st.pyplot(plot_correlation_matrix(data,mon_dictionnaire[cle_choisie]))
+################################################################################
+st.pyplot(plot_correlation_matrix(data,drogues_col))
 
 #######################################################################################
 st.title("Analyse approfondie :")
