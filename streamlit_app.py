@@ -111,8 +111,8 @@ if st.button('Afficher le graphe'):
 #######################################################################################
 mon_dictionnaire = {
     "Individu": info_col,
-    "caractere": caract_col,
-    "drogues": drogues_col
+    "Caractere": caract_col,
+    "Drogues": drogues_col
 }
 
 st.markdown("Analyse de la matrice de correlation selon une colonne choisi")
