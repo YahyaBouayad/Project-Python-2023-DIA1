@@ -108,6 +108,12 @@ selected_column_b = st.selectbox('Choisissez la deuxième colonne',info_col )
 if st.button('Afficher le graphe'):
     fig2 = plot_proportion_bar2(pers_data, selected_column_a, selected_column_b)
     st.pyplot(fig2)
+
+#######################################################################################
+st.markdown("User count for different drogues ")
+st.pyplot(plot_user_counts_per_drug_combined(data,drogues_col))
+st.markdown("And for more detail :")
+
 #######################################################################################
 mon_dictionnaire = {
     "Individu": info_col,
@@ -119,7 +125,7 @@ st.markdown("Analyse de la matrice de correlation selon une colonne choisi")
 cle_choisie = st.selectbox("Choisissez une clé :", list(mon_dictionnaire.keys()))
 st.pyplot(plot_correlation_matrix(data,mon_dictionnaire[cle_choisie]))
 ################################################################################
-st.pyplot(plot_user_counts_per_drug_combined(data,drogues_col))
+
 
 #######################################################################################
 st.title("Analyse approfondie :")
