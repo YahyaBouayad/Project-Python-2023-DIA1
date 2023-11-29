@@ -109,7 +109,15 @@ if st.button('Afficher le graphe'):
     fig2 = plot_proportion_bar2(pers_data, selected_column_a, selected_column_b)
     st.pyplot(fig2)
 #######################################################################################
+mon_dictionnaire = {
+    "Individu": info_col,
+    "caractere": caract_col,
+    "drogues": drogues_col
+}
 
+st.markdown("Analyse de la matrice de correlation selon une colonne choisi")
+cle_choisie = st.selectbox("Choisissez une clé :", list(mon_dictionnaire.keys()))
+st.pyplot(plot_correlation_matrix(data,mon_dictionnaire[cle_choisie]))
 
 #######################################################################################
 st.title("Analyse approfondie :")
