@@ -140,8 +140,8 @@ selected_column_drogue = st.selectbox('Choisissez une colonne pour l\'analyse', 
 col1, col2 = st.beta_columns(2)
 # Afficher les graphiques dans les colonnes correspondantes
 with col1:
-    st.pyplot(radar_chart_consommation_drogue(pers_data,selected_column_drogue,caract_col,True))
+    st.pyplot(radar_chart_consommation_drogue(data,selected_column_drogue,caract_col,True))
 with col2:
-    st.pyplot(radar_chart_consommation_drogue(pers_data,selected_column_drogue,caract_col,False))
+    st.pyplot(radar_chart_consommation_drogue(data,selected_column_drogue,caract_col,False))
 
 
