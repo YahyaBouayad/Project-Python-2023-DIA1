@@ -162,7 +162,7 @@ with col2:
 st.markdown("Repartiton du type de drogue par rapport au etude effectuer")
 options_disponibles = drogues_col
 multi_options_choisies = st.multiselect("Choisissez vos options :", options_disponibles)
-st.pyplot(plot_education_level_sunburst(pers_data,multi_options_choisies))
+st.plotly_chart(plot_education_level_sunburst(pers_data,multi_options_choisies),theme="streamlit",use_container_width=True)
 
 #######################################################
 st.title("Salam ou bien salut on c quitter sur c mot ptdrr t qui")
