@@ -92,3 +92,7 @@ selected_column = st.selectbox('Choisissez une colonne pour l\'analyse', info_co
 if st.button('Afficher le graphique'):
     fig = plot_proportion_bar(pers_data, selected_column)
     st.pyplot(fig)
+
+st.markdown("Analyse des caracteres d'une personne moyenne qui consomme une drogue")
+selected_column = st.selectbox('Choisissez une colonne pour l\'analyse', drogues_col)
+
