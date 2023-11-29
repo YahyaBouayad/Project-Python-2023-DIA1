@@ -159,4 +159,9 @@ with col2:
     st.plotly_chart(plot_drug_use_trends_by_age_pers_data(pers_data,selected_column_drug),theme="streamlit", use_container_width=True)
 
 ###################################################
+st.markdown("Repartiton du type de drogue par rapport au etude effectuer")
+options_disponibles = drogues_col
+multi_options_choisies = st.multiselect("Choisissez vos options :", options_disponibles)
+
+#######################################################
 st.title("Salam ou bien salut on c quitter sur c mot ptdrr t qui")
