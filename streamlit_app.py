@@ -113,6 +113,11 @@ if st.button('Afficher le graphe'):
 st.markdown("User count for different drogues ")
 st.pyplot(plot_user_counts_per_drug_combined(data,drogues_col))
 st.markdown("And for more detail :")
+selected_column_details = st.selectbox('Choisissez la deuxième colonne',drogues_col )
+on = st.toggle('Afficher les details:')
+
+if on:
+    st.pyplot(plot_user_counts_for_drug(data,selected_column_details))
 
 #######################################################################################
 mon_dictionnaire = {
