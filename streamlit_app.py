@@ -137,3 +137,11 @@ st.title("Analyse approfondie :")
 st.markdown("Analyse des caracteres d'une personne moyenne qui consomme une drogue")
 selected_column_drogue = st.selectbox('Choisissez une colonne pour l\'analyse', drogues_col )
 
+col1, col2 = st.beta_columns(2)
+# Afficher les graphiques dans les colonnes correspondantes
+with col1:
+    st.pyplot(radar_chart_consommation_drogue(pers_data,selected_column_drogue,caract_col,True))
+with col2:
+    st.pyplot(radar_chart_consommation_drogue(pers_data,selected_column_drogue,caract_col,False))
+
+
