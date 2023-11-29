@@ -174,3 +174,22 @@ def plot_user_counts_per_drug_combined(data, drogues_col):
 
     plt.tight_layout()  # Adjust layout to prevent overlapping
     return plt
+
+def plot_user_counts_for_drug(data, drug_name):
+    # Create a copy of the DataFrame to avoid modifying the original
+    copy_df = data.copy()
+
+    # Create a new binary column
+    col_name = 'User_' + drug_name.replace(" ", "_")
+    copy_df[col_name] = (copy_df[drug_name] > 0).astype(int)
+
+    # Create a countplot for the specified drug
+    plt.figure(figsize=(8, 5))
+    ax = sns.countplot(x=col_name, data=copy_df)
+
+    # Customize the plot to remove y-axis label and x-axis ticks
+    ax.set(yticklabels=[])
+    ax.set_xticks([])
+
+    plt.title(f'Users vs Non-Users - {drug_name}')
+    return plt
