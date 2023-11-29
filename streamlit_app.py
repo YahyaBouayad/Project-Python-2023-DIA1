@@ -92,7 +92,7 @@ selected_column = st.selectbox('Choisissez une colonne pour l\'analyse', info_co
 if st.button('Afficher le graphique'):
     fig = plot_proportion_bar(pers_data, selected_column)
     st.pyplot(fig)
-    st.pyplot(plot_pie_chart(pers_data,selected_column))
+    st.plotly_chart(plot_pie_chart(pers_data,selected_column),theme="streamlit", use_container_width=True)
 
 
 
