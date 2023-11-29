@@ -152,7 +152,7 @@ st.plotly_chart(profil_drogue_radar(pers_data,drogues_col,caract_col),theme="str
 ###########################################################################################################################
 
 st.subheader("Tendance de consomation selon la tranche d'age :sunglasses:")
-col1, col2 = st.columns([1, 3])
+col1, col2 = st.columns([1, 2])
 with col1:
     selected_column_drug = st.selectbox('Choisissez la drogue à etudier ', drogues_col )
 with col2:
