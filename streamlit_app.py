@@ -157,3 +157,6 @@ with col1:
     selected_column_drug = st.selectbox('Choisissez la drogue à etudier ', drogues_col )
 with col2:
     st.plotly_chart(plot_drug_use_trends_by_age_pers_data(pers_data,selected_column_drug),theme="streamlit", use_container_width=True)
+
+###################################################
+st.title("Salam ou bien salut on c quitter sur c mot")
