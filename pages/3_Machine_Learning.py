@@ -71,7 +71,7 @@ st.divider()
 st.markdown("Observation a inserer + passage au grid_search")
 
 on_grid = st.toggle('Activate Automatisation search')
-if on:
+if on_grid :
     param_grid = {
         'C': [0.1, 1, 10, 100],             # Paramètre de régularisation
         'gamma': [1, 0.1, 0.01, 0.001],     # Coefficient du noyau pour 'rbf', 'poly' et 'sigmoid'
