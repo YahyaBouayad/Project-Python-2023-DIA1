@@ -66,7 +66,7 @@ for option in options_restantes:
     valeur_slider = st.slider(f"Slider pour {option}", 0, 6, 1)
     valeurs_sliders[option] = valeur_slider
 valeurs_sliders[option_choisie]=0
-st.write(valeurs_sliders)
+st.write(valeurs_sliders['Consommation d\'alcool'])
 st.write(len(data.columns))
 
 if st.button('Lancement du code :'):
