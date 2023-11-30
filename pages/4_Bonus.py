@@ -60,5 +60,14 @@ st.divider()
 option_choisie = st.selectbox("Choisissez une drogue que vous voullez tester:", drogues_col)
 options_restantes = [option for option in drogues_col if option != option_choisie]
 
+valeurs_sliders = {}
+
 for option in options_restantes:
-    st.slider(f"Slider pour {option}", 0, 6, 1)
+    valeur_slider = st.slider(f"Slider pour {option}", 0, 6, 1)
+    valeurs_sliders[option] = valeur_slider
+    
+st.write("Valeurs des sliders :")
+st.write(valeurs_sliders)
+
+if st.button('Lancement du code :'):
+    data_final=process_user_input(age, genre, education, neuroticisme, extraversion, exp, amicalite, conscience, impulsivite, recherche)
