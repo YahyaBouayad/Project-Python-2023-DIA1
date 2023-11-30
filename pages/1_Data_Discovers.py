@@ -71,3 +71,9 @@ col = personne_col + drogues_col
 data=lecture_data()
 pers_data=pre_data(data,col,drogues_col,drogues_illégales)
 st.write(data)
+
+
+if 'data' not in st.session_state:
+    st.session_state['data'] = data
+if 'pers_data' not in st.session_state:
+    st.session_state['pers_data'] = pers_data
