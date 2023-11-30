@@ -33,7 +33,7 @@ def prediction_training(features,target,model):
     # Autres métriques de performance
     report = classification_report(y_test, y_pred)
     print(report)
-    
+    plt.clf()
     sns.distplot(y_pred,hist=False,color='r',label = 'Predicted Values')
     sns.distplot(y_test,hist=False,color='b',label = 'Actual Values')
     plt.title('Actual vs predicted values',fontsize =16)
