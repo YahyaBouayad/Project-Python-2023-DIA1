@@ -107,7 +107,28 @@ st.pyplot(plt_g)
 
 st.divider()
 st.markdown("Nouveau nettoyage des donnes :")
-name_target2=st.selectbox('Choose a drug:', drogues_col)
+name_target2=st.selectbox('Choose a drug to train', drogues_col)
 
 data_cannabis = prepare_dataset_for_drug_prediction(data, name_target2)
-st.write(data_cannabis.head(15))
+st.write(data_cannabis.head(10))
+
+features_cannabis = data_cannabis.drop(["Target","Consommation de Semeron"], axis=1)
+target_cannabis = data_cannabis['Target']
+
+tab4, tab5, tab6 = st.tabs(["Support Vector Machines", "Decision Tree Classifier","Random Forest Classifier"])
+
+with tab4:
+    plt_4,y_pred_4,report_4,accuracy_4=prediction_training(features_cannabis,target_cannabis,SVC())
+    st.write(f'Accuracy: {accuracy_4 * 100:.2f}%')
+    st.pyplot(plt_4)
+
+    
+with tab5:
+    plt_2,y_pred_5,report_5,accuracy_5=prediction_training(features_cannabis,target_cannabis,DecisionTreeClassifier())
+    st.write(f'Accuracy: {accuracy_5 * 100:.2f}%')
+    st.pyplot(plt_5)
+    
+with tab6:
+    plt_6,y_pred_6,report_6,accuracy_6=prediction_training(features_cannabis,target_cannabis,RandomForestClassifier())
+    st.write(f'Accuracy: {accuracy_6 * 100:.2f}%')
+    st.pyplot(plt_6)
