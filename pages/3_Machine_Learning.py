@@ -86,12 +86,12 @@ else:
         [0.1, 1, 10,100])
     
     with col2:
-        st.write("Coefficient du noyau :")
+        st.write("Kernel's coefficient :")
         g_param = st.radio(
         "What is your Gamma parameter",
         [1, 0.1, 0.01, 0.001])
     with col3:
-        st.write("Type du noyau :")
+        st.write("Type of kernel :")
         k_param = st.radio(
         "What is your kernel",
         ['rbf', 'poly', 'sigmoid'])
