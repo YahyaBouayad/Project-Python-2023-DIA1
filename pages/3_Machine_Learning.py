@@ -32,6 +32,8 @@ models = { ' Support Vector Machines': SVC(),
 
 st.title("Machine Learning work:")
 st.markdown("The objectif of our Machin learning training is to determine if we can find is someone use or used one of the drugs using her Information and his caracter. ")
+st.divider()
+
 name_features=['Age','Genre', 'Education','Névrotique', 'Extraverti', 'Ouvert à l\'expérience', 'Amical', 'Consciencieux', 'Imuplsif', 'En recherche de sensations']
 name_target=st.selectbox('Choose a drug to train', drogues_col)
 features = data[name_features]  # Ajoutez ici d'autres caractéristiques pertinentes
