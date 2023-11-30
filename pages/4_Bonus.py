@@ -66,8 +66,7 @@ for option in options_restantes:
     valeur_slider = st.slider(f"Slider pour {option}", 0, 6, 1)
     valeurs_sliders[option] = valeur_slider
 valeurs_sliders[option_choisie]=0
-st.write(age)
-st.write(len(data.columns))
+
 
 if st.button('Lancement du code :'):
     data_final=process_user_input(data,age, genre, education, neuroticisme, extraversion, exp, amicalite, conscience, impulsivite, recherche,valeurs_sliders['Consommation d\'alcool'],valeurs_sliders['Consommation d\'amphétamines'],valeurs_sliders['Consommation d\'amyl'],valeurs_sliders['Consommation de benzodiazepine'],valeurs_sliders['Consommation de café'],valeurs_sliders['Consommation de cannabis'],valeurs_sliders['Consommation de chocolat'],valeurs_sliders['Consommation de cocaïne'],valeurs_sliders['Consommation de crack'],valeurs_sliders['Consommation d\'ecstasy'],valeurs_sliders['Consommation d\'héroïne'],valeurs_sliders['Consommation de ketamine'],valeurs_sliders['Consommation de drogues légales'],valeurs_sliders['Consommation de LSD'],valeurs_sliders['Consommation de meth'],valeurs_sliders['Consommation de champignons magiques'],valeurs_sliders['Consommation de nicotine'],valeurs_sliders['Consommation de VSA'])
