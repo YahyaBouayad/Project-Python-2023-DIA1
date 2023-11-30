@@ -43,3 +43,40 @@ def prediction_training(features,target,model):
     
     return plt,y_pred,report,accuracy
 
+def grid_search_ml(features,target,param_grid):
+    '''
+    param_grid = {
+        'C': [0.1, 1, 10, 100],             # Paramètre de régularisation
+        'gamma': [1, 0.1, 0.01, 0.001],     # Coefficient du noyau pour 'rbf', 'poly' et 'sigmoid'
+        'kernel': ['rbf', 'poly', 'sigmoid'] # Type de noyau
+    }
+    '''
+
+    # Créer un modèle de base
+    dt = SVC()
+
+    # Instancier GridSearchCV
+    grid_search = GridSearchCV(estimator=dt, param_grid=param_grid, cv=5, n_jobs=-1, verbose=2, scoring='accuracy')
+    X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=42)
+    # Exécuter la recherche
+    grid_search.fit(X_train, y_train)
+
+    # Afficher les meilleurs paramètres
+    print("Meilleurs paramètres : ", grid_search.best_params_)
+
+    # Évaluer le meilleur modèle trouvé
+    best_model = grid_search.best_estimator_
+    y_pred = best_model.predict(X_test)
+    print(classification_report(y_test, y_pred))
+
+    accuracy = accuracy_score(y_test, y_pred)
+    print(f'Accuracy: {accuracy * 100:.2f}%')
+    
+    plt.clf()
+    sns.distplot(y_pred,hist=False,color='r',label = 'Predicted Values')
+    sns.distplot(y_test,hist=False,color='b',label = 'Actual Values')
+    plt.title('Actual vs predicted values',fontsize =16)
+    plt.xlabel('Values',fontsize=12)
+    plt.ylabel('Frequency',fontsize =12)
+    plt.legend(loc='upper left',fontsize=13)
+    return plt,y_pred,accuracy
