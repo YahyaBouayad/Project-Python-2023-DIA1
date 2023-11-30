@@ -96,9 +96,9 @@ else:
         "What is your kernel",
         ['rbf', 'poly', 'sigmoid'])
     param_grid = {
-        'C':c_param ,             # Paramètre de régularisation
-        'gamma':g_param ,     # Coefficient du noyau pour 'rbf', 'poly' et 'sigmoid'
-        'kernel': k_param # Type de noyau
+        'C':[c_param] ,             # Paramètre de régularisation
+        'gamma':[g_param] ,     # Coefficient du noyau pour 'rbf', 'poly' et 'sigmoid'
+        'kernel': [k_param] # Type de noyau
     }
 plt_g,y_pred_g,accuracy_g=grid_search_ml(features,target,param_grid)
 st.write(f'Accuracy: {accuracy_g * 100:.2f}%')
