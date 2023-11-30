@@ -21,59 +21,20 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn.metrics import mean_squared_error,r2_score
 
-
-info_col = [
-    'Age', 
-    'Genre', 
-    'Education', 
-    'Pays',
-    'Ethnie',
-]
-
-caract_col = [
-    'Neuroticisme',
-    'Extraversion',
-    'Ouverture à l\'expérience',
-    'Amicalité',
-    'Conscience',
-    'Impulsivité',
-    'Recherche de sensations'
-]
+    
+info_col= st.session_state["info_col"]
+caract_col=st.session_state["caract_col"]
 
 personne_col = info_col + caract_col
+drogues_col=st.session_state["drogues_col"]
+drogues_autorisées=st.session_state["drogues_autorisées"]
 
-drogues_col = [
-    'Consommation d\'alcool',
-    'Consommation d\'amphétamines',
-    'Consommation d\'amyl',
-    'Consommation de benzodiazepine',
-    'Consommation de café',
-    'Consommation de cannabis',
-    'Consommation de chocolat',
-    'Consommation de cocaïne',
-    'Consommation de crack',
-    'Consommation d\'ecstasy',
-    'Consommation d\'héroïne',
-    'Consommation de ketamine',
-    'Consommation de drogues légales',
-    'Consommation de LSD',
-    'Consommation de meth',
-    'Consommation de champignons magiques',
-    'Consommation de nicotine',
-    'Consommation de Semeron',
-    'Consommation de VSA'
-]
-
-drogues_autorisées = ['Consommation d\'alcool', 'Consommation de café', 'Consommation de chocolat', 'Consommation de nicotine']
 drogues_illégales = [i for i in drogues_col if i not in drogues_autorisées]
 col = personne_col + drogues_col
 
-data=lecture_data()
-pers_data=pre_data(data,col,drogues_col,drogues_illégales)
+data=st.session_state["data"]
+pers_data=st.session_state["pers_data"]
 st.write(data)
 
 
-if 'data' not in st.session_state:
-    st.session_state['data'] = data
-if 'pers_data' not in st.session_state:
-    st.session_state['pers_data'] = pers_data
+
