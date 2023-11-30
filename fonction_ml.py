@@ -21,10 +21,7 @@ warnings.filterwarnings('ignore')
 
 def prediction_training(features,target,model):
     
-    # Séparation en ensembles d'entraînement et de test
     X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=42)
-
-    # Création et entraînement du modèle
     
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
@@ -37,13 +34,12 @@ def prediction_training(features,target,model):
     report = classification_report(y_test, y_pred)
     print(report)
     
-    
     sns.distplot(y_pred,hist=False,color='r',label = 'Predicted Values')
     sns.distplot(y_test,hist=False,color='b',label = 'Actual Values')
     plt.title('Actual vs predicted values',fontsize =16)
     plt.xlabel('Values',fontsize=12)
     plt.ylabel('Frequency',fontsize =12)
     plt.legend(loc='upper left',fontsize=13)
-    plt.show()
-    return y_pred
+    
+    return plt,y_pred,report,accuracy
 
