@@ -124,7 +124,7 @@ with tab4:
 
     
 with tab5:
-    plt_2,y_pred_5,report_5,accuracy_5=prediction_training(features_cannabis,target_cannabis,DecisionTreeClassifier())
+    plt_5,y_pred_5,report_5,accuracy_5=prediction_training(features_cannabis,target_cannabis,DecisionTreeClassifier())
     st.write(f'Accuracy: {accuracy_5 * 100:.2f}%')
     st.pyplot(plt_5)
     
