@@ -5,6 +5,10 @@ import plotly.express as px
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import seaborn as sns
+from fonction_project import *
+from fonction_ml import *
+import warnings
+warnings.filterwarnings('ignore')
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import classification_report
@@ -16,8 +20,8 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn.metrics import mean_squared_error,r2_score
-import warnings
-warnings.filterwarnings('ignore')
+
+
 info_col = [
     'Age', 
     'Genre', 
