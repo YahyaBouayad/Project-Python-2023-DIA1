@@ -42,8 +42,9 @@ genre = st.radio(
 )
 education = st.radio(
     "What's your Education",
-    ["", ""],
+    ["A quitté l\'école avant 16 ans", "A quitté l\'école à 16 ans","A quitté l\'école à 17 ans","A quitté l\'école à 18 ans","Universitaire, sans diplôme","Certificat / diplôme professionnel","Diplôme universitaire","Master","Doctorat"],
     index=None,
+    horizontal=True
 )
 neuroticisme = st.slider('Neuroticisme', 0, 10, 1)
 extraversion = st.slider('Extraversion', 0, 10, 1)
