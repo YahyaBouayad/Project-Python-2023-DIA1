@@ -14,6 +14,7 @@ data=st.session_state["data"]
 drogues_col=st.session_state['drogues_col'] 
 pers_data=st.session_state["pers_data"]
 caract_col=st.session_state["caract_col"]
+drogues_illégales=st.session_state["drogues_illégales"]
 st.title("Let's get in the details :")
 st.markdown("Radar graph that highlights the characteristics of the average person that consumes :")
 selected_column_drogue = st.selectbox('Choose a column', drogues_col )
