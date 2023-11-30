@@ -22,6 +22,9 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn.metrics import mean_squared_error,r2_score
 
+
+data=st.session_state["data"]
+
 st.write(data)
 """
 features = data[['Age','Genre', 'Education','Neuroticisme', 'Extraversion', 'Ouverture à l\'expérience', 'Amicalité', 'Conscience', 'Impulsivité', 'Recherche de sensations']]  # Ajoutez ici d'autres caractéristiques pertinentes
