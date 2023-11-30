@@ -55,3 +55,4 @@ col = personne_col + drogues_col
 
 data=lecture_data()
 pers_data=pre_data(data,col,drogues_col,drogues_illégales)
+st.write(data)
