@@ -71,6 +71,8 @@ if 'drogues_col' not in st.session_state:
     st.session_state['drogues_col'] = drogues_col
 if 'drogues_autorisées' not in st.session_state:
     st.session_state['drogues_autorisées'] = drogues_autorisées
+if 'drogues_illégales' not in st.session_state:
+    st.session_state['drogues_illégales'] = drogues_illégales
 
 #%% Debut Page 
 
