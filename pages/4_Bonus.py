@@ -31,13 +31,24 @@ st.divider()
 
 age = st.radio(
     "What's your age",
-    ["18-24", "25-34", "35-44","45-54","55-64","64+"],
+    ["18-24", "25-34", "35-44","45-54","55-64","65+"],
     index=None,
     horizontal=True
 )
-st.write(age)
 genre = st.radio(
     "What's your gender",
     ["Homme", "Femme"],
     index=None,
 )
+education = st.radio(
+    "What's your Education",
+    ["", ""],
+    index=None,
+)
+neuroticisme = st.slider('Neuroticisme', 0, 10, 1)
+extraversion = st.slider('Extraversion', 0, 10, 1)
+exp = st.slider('Ouverture à l\'expérience', 0, 10, 1)
+amicalite = st.slider('Amicalité', 0, 10, 1)
+conscience = st.slider('Conscience', 0, 10, 1)
+impulsivite = st.slider('Impulsivité', 0, 10, 1)
+recherche = st.slider('Recherche de sensations', 0, 10, 1)
