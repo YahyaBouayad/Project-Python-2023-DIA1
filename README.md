@@ -13,8 +13,6 @@ This one is composed of 5 rows × 31 columns, the data are mapped by values comp
 
 For the cleaning of the dataset we decided to remap the values with their true meaning, this will allow us to have a more interesting display to analyze and visualize.
 
-Before that we decided to delete all the people who pretend to have consumed Semeron. This is a fake drug inserted in the questionnaire used to collect these data, it allows to test the veracity of the information given by the people. In the end, there are only 3 people who claim to have consumed it.
-
 You can see the new cleaned dataset, we also created lists to facilitate the management of the data we want to study.
 
 Before starting the study we can see the correlation between all the data, this can give us ideas on the future data we will want to study.
