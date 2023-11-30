@@ -180,3 +180,13 @@ def prepare_dataset_for_drug_prediction(dataframe, drug_name):
     # Removing the original drug column
     df.drop(drug_name, axis=1, inplace=True)
     return df
+
+def prediction_training_f(data,model,drug):
+    data=prepare_dataset_for_drug_prediction(data,drug)
+    X = data_cannabis.drop(["Target","Consommation de Semeron"], axis=1)
+    Y = data_cannabis['Target']
+    
+    model.fit(X, Y)
+    y_pred = model.predict(X_test)
+    return y_pred
+
