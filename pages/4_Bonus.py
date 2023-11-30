@@ -77,11 +77,11 @@ if st.button('Lancement du code :'):
     features_cannabis = data_cannabis.drop(["Target","Consommation de Semeron"], axis=1)
     target_cannabis = data_cannabis['Target']
     
-    st.write(data_final.columns)
-    st.divider()
-    st.write(features_cannabis.columns)
     
     model_train=prediction_training_f(features_cannabis,target_cannabis,SVC())
-    st.write(model_train.predict(data_final))
-    
+    prediction=model_train.predict(data_final)
+    if prediction == 0:
+        st.write("You don't consume :"+option_choisie)
+    else :
+         st.write("You consume :"+option_choisie+". Shame !")
     
