@@ -1,3 +1,15 @@
+import streamlit as st
+import pandas as pd
+import numpy as np
+import plotly.express as px
+import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+import seaborn as sns
+from fonction_project import *
+from fonction_ml import *
+import warnings
+warnings.filterwarnings('ignore')
+
 
 st.title("Let's get in the details :")
 st.markdown("Radar graph that highlights the characteristics of the average person that consumes :")
