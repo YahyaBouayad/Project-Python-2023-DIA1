@@ -121,8 +121,8 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
                         impulsivite, recherche] + [0] * len(drogues_col)
 
     # Colonnes de caractéristiques
-    caract_col = ['Neuroticisme', 'Extraversion', 'Ouverture à l\'expérience',
-                'Amicalité', 'Conscience']
+    caract_col = ['Névrotique', 'Extraverti', 'Ouvert à l\'expérience',
+                'Amical', 'Consciencieux']
 
     st.write("Colonnes disponibles dans user_data :", user_data.columns)
     user_data[caract_col] = user_data[caract_col].astype(float).apply(lambda x: x * 6)
