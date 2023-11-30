@@ -75,16 +75,16 @@ if 'drogues_autorisées' not in st.session_state:
 #%% Debut Page 
 
 # TITRE : 
-st.title("Data Analyse for the drug data ")
+st.title("Data Analysis for the drug data ")
 st.markdown("Project made by \n Yahya BOUAYAD,\n Hamza HALINE\n et Joshua BORNET")
 
 if st.checkbox("Show raw data"):
-    st.subheader('Drug Raw data used')
+    st.subheader('Addiction Raw data used')
     st.write(data)
     st.markdown(
         """
         The dataset here is made up of 31 columns, the first represents some global characteristics about the person such as his age, education and others. Then comes some psychological aspects of the person, and the last part of the dataset is about what kind of addiction the person has, from chocolate to cocaine.
-We have 1800 individuals, which gives us a good data set to study.
+We have 1800 individuals, which gives us a good dataset to study.
 
         """
         )
@@ -124,7 +124,7 @@ if st.button('Show graph'):
     st.pyplot(fig2)
 
 #######################################################################################
-st.markdown("User count for differents drugs")
+st.markdown("User count for differents addictions")
 st.pyplot(plot_user_counts_per_drug_combined(data,drogues_col))
 st.markdown("And for more detail :")
 selected_column_details = st.selectbox('Choose the second column',drogues_col )
@@ -147,9 +147,9 @@ st.pyplot(plot_correlation_matrix(data,mon_dictionnaire[cle_choisie]))
 
 
 #######################################################################################
-st.title("Analyse approfondie :")
-st.markdown("Analyse des caracteres d'une personne moyenne qui consomme une drogue")
-selected_column_drogue = st.selectbox('Choisissez une colonne pour l\'analyse', drogues_col )
+st.title("Let's get in the details :")
+st.markdown("Radar graph that highlights the characteristics of the average person that consumes :")
+selected_column_drogue = st.selectbox('Choose a column', drogues_col )
 
 col1, col2 = st.columns(2)
 # Afficher les graphiques dans les colonnes correspondantes
@@ -158,27 +158,27 @@ with col1:
 with col2:
     st.pyplot(radar_chart_consommation_drogue(pers_data,selected_column_drogue,caract_col,False))
 
-st.markdown("Pour une vue d'ensemble:")
+st.markdown("Global view :")
 st.plotly_chart(profil_drogue_radar(pers_data,drogues_col,caract_col),theme="streamlit", use_container_width=True)
 
 ###########################################################################################################################
 
-st.subheader("Tendance de consomation selon la tranche d'age :sunglasses:")
+st.subheader("Consumption trend by age group :")
 col1, col2 = st.columns([1, 2])
 with col1:
-    selected_column_drug = st.selectbox('Choose a drug :', drogues_col )
+    selected_column_drug = st.selectbox('Choose a column :', drogues_col )
 with col2:
     st.plotly_chart(plot_drug_use_trends_by_age_pers_data(pers_data,selected_column_drug),theme="streamlit", use_container_width=True)
 
 ###################################################
-st.markdown("Repartiton du type de drogue par rapport au etude effectuer")
+st.markdown("Consumption trend by study level :")
 options_disponibles = drogues_col
-multi_options_choisies = st.multiselect("Choisissez vos options :", options_disponibles)
+multi_options_choisies = st.multiselect("Choose your degree :", options_disponibles)
 st.plotly_chart(plot_education_level_sunburst(pers_data,multi_options_choisies),theme="streamlit",use_container_width=True)
 
 #######################################################
 all_dat_combinaision=pre_combinaison(pers_data,drogues_illégales)
-st.markdown("Combinaison de drogue : ")
+st.markdown("Addiction combination : ")
 st.write(all_dat_combinaision)
 st.plotly_chart(frequence_combinaison(all_dat_combinaision),theme="streamlit",use_container_width=True)
 #######################################################
