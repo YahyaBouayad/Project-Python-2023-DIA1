@@ -30,20 +30,20 @@ models = { ' Support Vector Machines': SVC(),
             ' Decision Tree Classifier': DecisionTreeClassifier(),
             'Random Forest Classifier': RandomForestClassifier(),}
 
-st.title("Machine Learning work:")
-st.markdown("The objectif of our Machin learning training is to determine if we can find is someone use or used one of the drugs using her Information and his caracter. ")
+st.title("Machine Learning :")
+st.markdown("The purpose of this part is to be able to determinate if someone is likely to fall into one addiction someday.")
 st.divider()
 
 name_features=['Age','Genre', 'Education','Névrotique', 'Extraverti', 'Ouvert à l\'expérience', 'Amical', 'Consciencieux', 'Imuplsif', 'En recherche de sensations']
-name_target=st.selectbox('Choose a drug to train', drogues_col)
+name_target=st.selectbox('Choose an addiction to train', drogues_col)
 features = data[name_features]  # Ajoutez ici d'autres caractéristiques pertinentes
 target = data[name_target]
 
-st.markdown("The data features are :")
+st.markdown("The features data are :")
 """
 'Age','Genre', 'Education','Névrotique', 'Extraverti', 'Ouvert à l\'expérience', 'Amical', 'Consciencieux', 'Imuplsif', 'En recherche de sensations'
 """
-st.markdown("The data Target is :")
+st.markdown("The target data is :")
 st.write(name_target)
 
 
@@ -68,9 +68,9 @@ with tab3:
     st.pyplot(plt_3)
 ####################################################################################################################
 st.divider()
-st.markdown("Observation a inserer + passage au grid_search")
+st.markdown("All the accuracies show that our models, at least for now, are not usable. Let's dive into the research of the bets grid-search, to optimize our algorithm.")
 
-on_grid = st.toggle('Activate Automatisation search')
+on_grid = st.toggle('Enable automatic search')
 if on_grid :
     param_grid = {
         'C': [0.1, 1, 10, 100],             # Paramètre de régularisation
@@ -80,7 +80,7 @@ if on_grid :
 else:
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.write("Regularisation parametre :")
+        st.write("Regularisation parameters :")
         c_param = st.radio(
         "What is your C parameter",
         [0.1, 1, 10,100])
@@ -100,15 +100,15 @@ else:
         'gamma':[g_param] ,     # Coefficient du noyau pour 'rbf', 'poly' et 'sigmoid'
         'kernel': [k_param]} # Type de noyau
     
-if st.button("Lancement du Grid"):
+if st.button("Launch search"):
     plt_g,y_pred_g,accuracy_g=grid_search_ml(features,target,param_grid)
     st.write(f'Accuracy: {accuracy_g * 100:.2f}%')
     st.pyplot(plt_g)
 ####################################################################
 
 st.divider()
-st.markdown("Nouveau nettoyage des donnes :")
-name_target2=st.selectbox('Choose a drug:', drogues_col)
+st.markdown("New data cleaning :")
+name_target2=st.selectbox('Choose an addiction :', drogues_col)
 
 data_cannabis = prepare_dataset_for_drug_prediction(data, name_target2)
 st.write(data_cannabis.head(10))
