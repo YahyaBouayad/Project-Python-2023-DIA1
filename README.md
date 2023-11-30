@@ -17,7 +17,6 @@ You can see the new cleaned dataset, we also created lists to facilitate the man
 
 Before starting the study we can see the correlation between all the data, this can give us ideas on the future data we will want to study.
 
-As you can see there is a strong correlation between people who consume certain drugs and certain characteristics.
 
 ### Data visualization:
 
