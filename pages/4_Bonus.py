@@ -61,6 +61,7 @@ option_choisie = st.selectbox("Choisissez une drogue que vous voullez tester:", 
 options_restantes = [option for option in drogues_col if option != option_choisie]
 
 valeurs_sliders = {}
+print(valeurs_sliders)
 
 for option in options_restantes:
     valeur_slider = st.slider(f"Slider pour {option}", 0, 6, 1)
