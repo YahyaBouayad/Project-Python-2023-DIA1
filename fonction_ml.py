@@ -181,21 +181,21 @@ def prepare_dataset_for_drug_prediction(dataframe, drug_name):
     df.drop(drug_name, axis=1, inplace=True)
     return df
 
-def prediction_training_f(data,model,drug):
+def prediction_training_f(data,data_final,model,drug):
     data=prepare_dataset_for_drug_prediction(data,drug)
     X = data_cannabis.drop(["Target","Consommation de Semeron"], axis=1)
     Y = data_cannabis['Target']
     
     model.fit(X, Y)
-    y_pred = model.predict(X_test)
+    y_pred = model.predict(data_final)
     return y_pred
     
-def process_user_input(data,age, genre, education, neuroticisme, extraversion, exp, amicalite, conscience, impulsivite, recherche):
+def process_user_input(age, genre, education, neuroticisme, extraversion, exp, amicalite, conscience, impulsivite, recherche, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18):
     # Créer un DataFrame vide avec les mêmes colonnes que data2
     user_data = pd.DataFrame(columns=data.columns)
 
     # Ajouter une seule ligne avec les données de l'utilisateur
-    user_data.loc[0] = [0] * 29 
+    user_data.loc[0] = [0] * 12 + [0] * len(drogues_col)
 
     # Ajoute les colonnes Ethnie et Pays avec des valeurs constantes
     user_data['Ethnie'] = 'White'
@@ -369,4 +369,31 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
     }
     user_data['Genre'] = user_data['Genre'].map(genre_mapping)
 
+    droguescol = [
+        'Consommation d\'alcool',
+        'Consommation d\'amphétamines',
+        'Consommation d\'amyl',
+        'Consommation de benzodiazepine',
+        'Consommation de café',
+        'Consommation de cannabis',
+        'Consommation de chocolat',
+        'Consommation de cocaïne',
+        'Consommation de crack',
+        'Consommation d\'ecstasy',
+        'Consommation d\'héroïne',
+        'Consommation de ketamine',
+        'Consommation de drogues légales',
+        'Consommation de LSD',
+        'Consommation de meth',
+        'Consommation de champignons magiques',
+        'Consommation de nicotine',
+        'Consommation de Semeron',
+        'Consommation de VSA'
+    ]
+    len(droguescol)
+    liste1 = [d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, 0, d18]
+    for i in range (19):
+        user_data[droguescol[i]] = liste1[i]
+
     return user_data
+
