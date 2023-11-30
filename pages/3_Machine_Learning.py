@@ -38,7 +38,8 @@ features = data[name_features]  # Ajoutez ici d'autres caractéristiques pertine
 target = data[name_target]
 
 st.markdown("The data features are :")
-st.write(name_features)
+for name in name_features:
+            st.write(name)
 
 st.markdown("The data Target is :")
 st.write(name_target)
