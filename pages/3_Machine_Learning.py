@@ -27,7 +27,7 @@ data=st.session_state["data"]
 
 st.write(data)
 
-features = data[['Age','Genre', 'Education','Neuroticisme', 'Extraversion', 'Ouverture à l\'expérience', 'Amicalité', 'Conscience', 'Impulsivité', 'Recherche de sensations']]  # Ajoutez ici d'autres caractéristiques pertinentes
+features = data[['Age','Genre', 'Education','Névrotique', 'Extraverti', 'Ouvert à l\'expérience', 'Amical', 'Consciencieux', 'Imuplsif', 'En recherche de sensations']]  # Ajoutez ici d'autres caractéristiques pertinentes
 target = data['Consommation de cannabis']
 prediction_training(features,target,SVC())
 
