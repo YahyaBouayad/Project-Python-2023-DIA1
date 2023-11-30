@@ -25,12 +25,15 @@ from sklearn.metrics import mean_squared_error,r2_score
 
 data=st.session_state["data"]
 
-st.write(data)
+st.title("Machine Learning work:")
+st.markdown("The objectif of our Machin learning training is to determine if we can find is someone use or used one of the drugs using her Information and his caracter. ")
+name_features=['Age','Genre', 'Education','Névrotique', 'Extraverti', 'Ouvert à l\'expérience', 'Amical', 'Consciencieux', 'Imuplsif', 'En recherche de sensations']
 
-features = data[['Age','Genre', 'Education','Névrotique', 'Extraverti', 'Ouvert à l\'expérience', 'Amical', 'Consciencieux', 'Imuplsif', 'En recherche de sensations']]  # Ajoutez ici d'autres caractéristiques pertinentes
+
+
+features = data[name_features]  # Ajoutez ici d'autres caractéristiques pertinentes
 target = data['Consommation de cannabis']
 prediction_training(features,target,SVC())
 
-st.title("Machine Learning work:")
-st.markdown("The objectif of our Machin learning training is to determine if we can find is someone use or used one of the drugs using her Information and his caracter. ")
+
 
