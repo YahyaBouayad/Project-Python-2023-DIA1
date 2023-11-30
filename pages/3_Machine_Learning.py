@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from fonction_project import *
 from fonction_ml import *
-from Data_Discovers import *
+
 import warnings
 warnings.filterwarnings('ignore')
 from sklearn.model_selection import train_test_split
