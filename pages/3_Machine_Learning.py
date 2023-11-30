@@ -100,10 +100,10 @@ else:
         'gamma':[g_param] ,     # Coefficient du noyau pour 'rbf', 'poly' et 'sigmoid'
         'kernel': [k_param] # Type de noyau
     
-if st.button("Lancement du Grid", type="primary"):
-            plt_g,y_pred_g,accuracy_g=grid_search_ml(features,target,param_grid)
-            st.write(f'Accuracy: {accuracy_g * 100:.2f}%')
-            st.pyplot(plt_g)
+if st.button("Lancement du Grid"):
+    plt_g,y_pred_g,accuracy_g=grid_search_ml(features,target,param_grid)
+    st.write(f'Accuracy: {accuracy_g * 100:.2f}%')
+    st.pyplot(plt_g)
 ####################################################################
 
 st.divider()
