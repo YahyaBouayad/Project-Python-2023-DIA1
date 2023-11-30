@@ -25,3 +25,13 @@ from sklearn.metrics import mean_squared_error,r2_score
 
 data=st.session_state["data"]
 drogues_col=st.session_state['drogues_col']
+st.title("Bonus  :")
+st.markdown("For the bonus we created a little game, where you can put your data and see if you taken a drug or not.")
+st.divider()
+
+age = st.radio(
+    "What's your age",
+    ["18-24", "25-34", "35-44","45-54","55-64","64+"],
+    index=None,
+)
+st.write(age)
