@@ -124,7 +124,6 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
     caract_col = ['Névrotique', 'Extraverti', 'Ouvert à l\'expérience',
                 'Amical', 'Consciencieux']
 
-    st.write("Colonnes disponibles dans user_data :", user_data.columns)
     user_data[caract_col] = user_data[caract_col].astype(float).apply(lambda x: x * 6)
 
     neuro_mapping = {
