@@ -112,10 +112,10 @@ def prediction_training_f(data,data_final,model,drug):
 def process_user_input(data,age, genre, education, neuroticisme, extraversion, exp, amicalite, conscience, impulsivite, recherche, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18):
     # Créer un DataFrame vide avec les mêmes colonnes que data2
     user_data = pd.DataFrame(columns=data.columns)
-
+    print(user_data)
     # Ajouter une seule ligne avec les données de l'utilisateur
     user_data.loc[0] = [0] * (12 + len(drogues_col))
-
+    print(user_data.loc[0])
     # Ajoute les colonnes Ethnie et Pays avec des valeurs constantes
     user_data['Ethnie'] = -0.31685
     user_data['Pays'] = 0.96082
