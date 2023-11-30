@@ -125,7 +125,7 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
                 'Amicalité', 'Conscience']
 
     # Multiplier les valeurs par 6 pour les colonnes spécifiées
-    user_data[caract_col] = user_data[caract_col].apply(lambda x: x * 6)
+    user_data[caract_col] = user_data[caract_col].astype(float).apply(lambda x: x * 6)
 
     neuro_mapping = {
         0: -3.46436, 6: -3.46436, 12: -3.46436, 13: -3.15735, 14: -2.75696, 15: -2.52197, 16: -2.42317,
