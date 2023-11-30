@@ -51,7 +51,7 @@ tab1, tab2, tab3 = st.tabs(["Support Vector Machines", "Decision Tree Classifier
 
 with tab1:
     plt_1,y_pred_1,report_1,accuracy_1=prediction_training(features,target,SVC())
-    st.write(f'Accuracy: {accuracy * 100:.2f}%')
+    st.write(f'Accuracy: {accuracy_1 * 100:.2f}%')
     st.pyplot(plt_1)
 
     
