@@ -75,8 +75,8 @@ if 'drogues_autorisées' not in st.session_state:
 #%% Debut Page 
 
 # TITRE : 
-st.title("Data Analysis for the drug data ")
-st.markdown("Project made by \n Yahya BOUAYAD,\n Hamza HALINE\n et Joshua BORNET")
+st.title("Data Discover :")
+
 st.divider()
 if st.checkbox("Show raw data"):
     st.subheader('Addiction Raw data used')
