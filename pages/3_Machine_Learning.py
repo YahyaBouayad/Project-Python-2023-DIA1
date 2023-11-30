@@ -37,6 +37,13 @@ name_target=st.selectbox('Choose a drug to train', drogues_col)
 features = data[name_features]  # Ajoutez ici d'autres caractéristiques pertinentes
 target = data[name_target]
 
+st.markdown("The data features are :")
+st.write(name_features)
+
+st.markdown("The data Target is :")
+st.write(name_target)
+
+
 
 
 tab1, tab2, tab3 = st.tabs(["Support Vector Machines", "Decision Tree Classifier","Random Forest Classifier"])
