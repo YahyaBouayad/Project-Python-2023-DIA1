@@ -73,8 +73,9 @@ if st.button('Lancement du code :'):
     data_cannabis=prepare_dataset_for_drug_prediction(data, option_choisie )
     features_cannabis = data_cannabis.drop(["Target","Consommation de Semeron"], axis=1)
     target_cannabis = data_cannabis['Target']
-    
+    st.write(data_final)
+    st.write(features_cannabis.head(5))
     model_train=prediction_training_f(features_cannabis,target_cannabis,SVC())
     st.write(model_train.predict(data_final))
-    st.write(data_final)
+    
     
