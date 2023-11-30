@@ -100,14 +100,33 @@ def prepare_dataset_for_drug_prediction(dataframe, drug_name):
     df.drop(drug_name, axis=1, inplace=True)
     return df
 
-def prediction_training_f(data,data_final,model,drug):
-    data=prepare_dataset_for_drug_prediction(data,drug)
-    X = data.drop(["Target","Consommation de Semeron"], axis=1)
-    Y = data['Target']
+def prediction_training_f(features,target,model):
     
-    model.fit(X, Y)
-    y_pred = model.predict(data_final)
-    return y_pred
+    # Séparation en ensembles d'entraînement et de test
+    X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.1, random_state=42)
+
+    # Création et entraînement du modèle
+    
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+
+
+    accuracy = accuracy_score(y_test, y_pred)
+    print(f'Accuracy: {accuracy * 100:.2f}%')
+    
+    # Autres métriques de performance
+    report = classification_report(y_test, y_pred)
+    print(report)
+    
+    
+    sns.distplot(y_pred,hist=False,color='r',label = 'Predicted Values')
+    sns.distplot(y_test,hist=False,color='b',label = 'Actual Values')
+    plt.title('Actual vs predicted values',fontsize =16)
+    plt.xlabel('Values',fontsize=12)
+    plt.ylabel('Frequency',fontsize =12)
+    plt.legend(loc='upper left',fontsize=13)
+    plt.show()
+    return model
     
 def process_user_input(data,age, genre, education, neuroticisme, extraversion, exp, amicalite, conscience, impulsivite, recherche, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18):
 
