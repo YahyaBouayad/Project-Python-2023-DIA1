@@ -117,45 +117,23 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
     user_data = pd.DataFrame(data=[[0] * len(data.columns)], columns=data.columns)
     
     # Remplacez les valeurs dans le DataFrame utilisateur
-    user_data['Age'] = age
-    user_data['Genre'] = genre
-    user_data['Education'] = education
-    user_data['Neuroticisme'] = neuroticisme
-    user_data['Extraversion'] = extraversion
-    user_data['Ouverture à l\'expérience'] = exp
-    user_data['Amicalité'] = amicalite
-    user_data['Conscience'] = conscience
-    user_data['Impulsivité'] = impulsivite
-    user_data['Recherche de sensations'] = recherche
-    
-    # Ajoute les colonnes Ethnie et Pays avec des valeurs constantes
-    user_data['Ethnie'] = -0.31685
-    user_data['Pays'] = 0.96082
+    user_data.loc[0] = [age, genre, education, 0.96082, -0.31685, neuroticisme, extraversion, exp, amicalite, conscience,
+                        impulsivite, recherche] + [0] * len(drogues_col)
 
-    # Mapping pour la colonne Age basé sur des intervalles
-    age_mapping = {
-        (18, 24): '18-24',
-        (25, 34): '25-34',
-        (35, 44): '35-44',
-        (45, 54): '45-54',
-        (55, 64): '55-64',
-        (65, float('inf')): '65+'
-    }
-
-    # Appliquer le mapping
-    user_data['Age'] = user_data['Age'].astype(int)  # Assurez-vous que la colonne Age est de type entier
-    user_data['Age'] = user_data['Age'].apply(lambda x: next((v for k, v in age_mapping.items() if k[0] <= x <= k[1]), x))
+    # Applique les mêmes transformations que dans le script pour le mapping
+    age_mapping = {'18-24': -0.95197, '25-34': -0.07854, '35-44': 0.49788, '45-54': 1.09449, '55-64': 1.82213, '65+': 2.59171}
+    user_data['Age'] = user_data['Age'].map(age_mapping)
 
     education_mapping = {
-        "Diplôme d'études secondaires ou équivalent": "A quitté l'école avant 16 ans",
-        "A quitté l'école à 16 ans": "A quitté l'école à 16 ans",
-        "A quitté l'école à 17 ans": "A quitté l'école à 17 ans",
-        "Baccalauréat": "A quitté l'école à 18 ans",
-        "Aucun diplôme d'études secondaires": "Universitaire, sans diplôme",
-        "Certificat ou diplôme d'études postsecondaires": "Certificat / diplôme professionnel",
-        "Diplôme universitaire": "Diplôme universitaire",
-        "Master Degree": "Master",
-        "Doctorat Degree": "Doctorat"
+        "A quitté l'école avant 16 ans": -2.43591,
+        "A quitté l'école à 16 ans": -1.73790,
+        "A quitté l'école à 17 ans": -1.43719,
+        "A quitté l'école à 18 ans": -1.22751,
+        "Universitaire, sans diplôme": -0.61113,
+        "Certificat / diplôme professionnel": -0.05921,
+        "Diplôme universitaire": 0.45468,
+        "Master": 1.16365,
+        "Doctorat": 1.98437
     }
     user_data['Education'] = user_data['Education'].map(education_mapping)
 
