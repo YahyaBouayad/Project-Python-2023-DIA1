@@ -110,12 +110,24 @@ def prediction_training_f(data,data_final,model,drug):
     return y_pred
     
 def process_user_input(data,age, genre, education, neuroticisme, extraversion, exp, amicalite, conscience, impulsivite, recherche, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18):
-    # Créer un DataFrame vide avec les mêmes colonnes que data2
-    user_data = pd.DataFrame(columns=data.columns)
-    print(user_data)
-    # Ajouter une seule ligne avec les données de l'utilisateur
-    user_data.loc[0] = [0] * (12 + len(drogues_col))
-    print(user_data.loc[0])
+
+    drogues_col = ['Consommation d\'alcool', 'Consommation d\'amphétamines', 'Consommation d\'amyl', 'Consommation de benzodiazepine', 'Consommation de café', 'Consommation de cannabis', 'Consommation de chocolat', 'Consommation de cocaïne', 'Consommation de crack', 'Consommation d\'ecstasy', 'Consommation d\'héroïne', 'Consommation de ketamine', 'Consommation de drogues légales', 'Consommation de LSD', 'Consommation de meth', 'Consommation de champignons magiques', 'Consommation de nicotine', 'Consommation de VSA']
+    
+    # Créez un DataFrame utilisateur
+    user_data = pd.DataFrame(data=[[0] * len(data.columns)], columns=data.columns)
+    
+    # Remplacez les valeurs dans le DataFrame utilisateur
+    user_data['Age'] = age
+    user_data['Genre'] = genre
+    user_data['Education'] = education
+    user_data['Neuroticisme'] = neuroticisme
+    user_data['Extraversion'] = extraversion
+    user_data['Ouverture à l\'expérience'] = exp
+    user_data['Amicalité'] = amicalite
+    user_data['Conscience'] = conscience
+    user_data['Impulsivité'] = impulsivite
+    user_data['Recherche de sensations'] = recherche
+    
     # Ajoute les colonnes Ethnie et Pays avec des valeurs constantes
     user_data['Ethnie'] = -0.31685
     user_data['Pays'] = 0.96082
