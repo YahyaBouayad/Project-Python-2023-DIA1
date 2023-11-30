@@ -65,4 +65,5 @@ with tab3:
     st.write(f'Accuracy: {accuracy_3 * 100:.2f}%')
     st.pyplot(plt_3)
 ####################################################################################################################
+st.divider()
 st.markdown("Observation a inserer + passage au grid_search")
