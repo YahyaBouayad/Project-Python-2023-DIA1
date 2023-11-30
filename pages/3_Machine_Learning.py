@@ -98,7 +98,7 @@ else:
     param_grid = {
         'C':[c_param] ,             # Paramètre de régularisation
         'gamma':[g_param] ,     # Coefficient du noyau pour 'rbf', 'poly' et 'sigmoid'
-        'kernel': [k_param] # Type de noyau
+        'kernel': [k_param]} # Type de noyau
     
 if st.button("Lancement du Grid"):
     plt_g,y_pred_g,accuracy_g=grid_search_ml(features,target,param_grid)
