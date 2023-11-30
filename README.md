@@ -70,3 +70,5 @@ We then obtain a precision of almost 90% for the SVM.
 
 ### More :
 
+We created a form"s to create our self data to use it with the machine learning algorithm. 
+And we also created a litlle game in the streamlit page in the bonus section, where we can trie to make guess to the trained algo if we consume some of the drugs in the liste.
