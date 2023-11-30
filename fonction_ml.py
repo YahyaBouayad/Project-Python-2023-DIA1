@@ -120,23 +120,6 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
     user_data.loc[0] = [age, genre, education, 0.96082, -0.31685, neuroticisme, extraversion, exp, amicalite, conscience,
                         impulsivite, recherche] + [0] * len(drogues_col)
 
-    # Applique les mêmes transformations que dans le script pour le mapping
-    age_mapping = {'18-24': -0.95197, '25-34': -0.07854, '35-44': 0.49788, '45-54': 1.09449, '55-64': 1.82213, '65+': 2.59171}
-    user_data['Age'] = user_data['Age'].map(age_mapping)
-
-    education_mapping = {
-        "A quitté l'école avant 16 ans": -2.43591,
-        "A quitté l'école à 16 ans": -1.73790,
-        "A quitté l'école à 17 ans": -1.43719,
-        "A quitté l'école à 18 ans": -1.22751,
-        "Universitaire, sans diplôme": -0.61113,
-        "Certificat / diplôme professionnel": -0.05921,
-        "Diplôme universitaire": 0.45468,
-        "Master": 1.16365,
-        "Doctorat": 1.98437
-    }
-    user_data['Education'] = user_data['Education'].map(education_mapping)
-
     # Colonnes de caractéristiques
     caract_col = ['Neuroticisme', 'Extraversion', 'Ouverture à l\'expérience',
                 'Amicalité', 'Conscience']
