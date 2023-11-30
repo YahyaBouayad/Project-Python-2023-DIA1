@@ -58,7 +58,7 @@ st.markdown("drogue")
 st.divider()
 
 option_choisie = st.selectbox("Choisissez une option", drogues_col)
-options_restantes = [option for option in options if option != option_choisie]
+options_restantes = [option for option in drogues_col if option != option_choisie]
 
 for option in options_restantes:
     st.slider(f"Slider pour {option}", 0, 6, 1)
