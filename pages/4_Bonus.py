@@ -33,5 +33,11 @@ age = st.radio(
     "What's your age",
     ["18-24", "25-34", "35-44","45-54","55-64","64+"],
     index=None,
+    horizontal=True
 )
 st.write(age)
+genre = st.radio(
+    "What's your gender",
+    ["Homme", "Femme"],
+    index=None,
+)
