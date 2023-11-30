@@ -107,7 +107,7 @@ st.pyplot(plt_g)
 
 st.divider()
 st.markdown("Nouveau nettoyage des donnes :")
-name_target2=st.selectbox('Choose a drug to train', drogues_col)
+name_target2=st.selectbox('Choose a drug:', drogues_col)
 
 data_cannabis = prepare_dataset_for_drug_prediction(data, name_target2)
 st.write(data_cannabis.head(15))
