@@ -35,6 +35,7 @@ age = st.radio(
     index=None,
     horizontal=True
 )
+
 genre = st.radio(
     "What's your gender",
     ["Homme", "Femme"],
@@ -55,3 +56,9 @@ impulsivite = st.slider('Impulsivité', 0, 10, 1)
 recherche = st.slider('Recherche de sensations', 0, 10, 1)
 st.markdown("drogue")
 st.divider()
+
+option_choisie = st.selectbox("Choisissez une option", drogues_col)
+options_restantes = [option for option in options if option != option_choisie]
+
+for option in options_restantes:
+    st.slider(f"Slider pour {option}", 0, 6, 1)
