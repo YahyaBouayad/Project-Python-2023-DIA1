@@ -77,7 +77,7 @@ if 'drogues_autorisées' not in st.session_state:
 # TITRE : 
 st.title("Data Analysis for the drug data ")
 st.markdown("Project made by \n Yahya BOUAYAD,\n Hamza HALINE\n et Joshua BORNET")
-
+st.divider()
 if st.checkbox("Show raw data"):
     st.subheader('Addiction Raw data used')
     st.write(data)
@@ -98,9 +98,11 @@ if st.checkbox("Show cleaned data"):
 st.title("Heat map of the data")
 st.markdown("We plot this heat map so we can visualize the correlation between data, it can give us an idea of which kind of graphics we could make.")
 st.pyplot(heat_map_data(data))
+st.divider()
 #################################################################
 st.title("General analysis of the surveyed people : ")
 st.markdown("So let's take a look at the general information we talked about just before.")
+st.divider()
 ####################################################################
 
 selected_column = st.selectbox('Choose a column to plot', info_col)
@@ -112,7 +114,7 @@ with tab2:
     st.plotly_chart(plot_pie_chart(pers_data,selected_column),theme="streamlit", use_container_width=True)
    
     
-
+st.divider()
 ##############################################################################
 
 st.markdown("2-columns graph")
@@ -123,16 +125,17 @@ if st.button('Show graph'):
     fig2 = plot_proportion_bar2(pers_data, selected_column_a, selected_column_b)
     st.pyplot(fig2)
 
+st.divider()
 #######################################################################################
 st.markdown("User count for differents addictions")
 st.pyplot(plot_user_counts_per_drug_combined(data,drogues_col))
 st.markdown("And for more detail :")
-selected_column_details = st.selectbox('Choose the second column',drogues_col )
+selected_column_details = st.selectbox('Choose the column',drogues_col )
 on = st.toggle('Show graph')
 
 if on:
     st.pyplot(plot_proportion_bar_drug(data,selected_column_details))
-
+st.divider()
 #######################################################################################
 mon_dictionnaire = {
     "Individu": info_col,
@@ -143,6 +146,7 @@ mon_dictionnaire = {
 st.markdown("Correlation matrix analysis based on a group of column")
 cle_choisie = st.selectbox("Choose a key :", list(mon_dictionnaire.keys()))
 st.pyplot(plot_correlation_matrix(data,mon_dictionnaire[cle_choisie]))
+st.divider()
 ################################################################################
 
 
@@ -160,7 +164,7 @@ with col2:
 
 st.markdown("Global view :")
 st.plotly_chart(profil_drogue_radar(pers_data,drogues_col,caract_col),theme="streamlit", use_container_width=True)
-
+st.divider()
 ###########################################################################################################################
 
 st.subheader("Consumption trend by age group :")
@@ -169,13 +173,13 @@ with col1:
     selected_column_drug = st.selectbox('Choose a column :', drogues_col )
 with col2:
     st.plotly_chart(plot_drug_use_trends_by_age_pers_data(pers_data,selected_column_drug),theme="streamlit", use_container_width=True)
-
+st.divider()
 ###################################################
 st.markdown("Consumption trend by study level :")
 options_disponibles = drogues_col
 multi_options_choisies = st.multiselect("Choose your degree :", options_disponibles)
 st.plotly_chart(plot_education_level_sunburst(pers_data,multi_options_choisies),theme="streamlit",use_container_width=True)
-
+st.divider()
 #######################################################
 all_dat_combinaision=pre_combinaison(pers_data,drogues_illégales)
 st.markdown("Addiction combination : ")
