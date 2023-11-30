@@ -52,7 +52,6 @@ tab1, tab2, tab3 = st.tabs(["Support Vector Machines", "Decision Tree Classifier
 with tab1:
     plt_1,y_pred_1,report_1,accuracy_1=prediction_training(features,target,SVC())
     st.write(f'Accuracy: {accuracy_1 * 100:.2f}%')
-    st.write(report_1)
     st.pyplot(plt_1)
 
     
@@ -65,3 +64,5 @@ with tab3:
     plt_3,y_pred_3,report_3,accuracy_3=prediction_training(features,target,RandomForestClassifier())
     st.write(f'Accuracy: {accuracy_3 * 100:.2f}%')
     st.pyplot(plt_3)
+####################################################################################################################
+st.markdown("Observation a inserer + passage au grid_search")
