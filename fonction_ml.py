@@ -217,7 +217,7 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
     impulsivite_mapping = {
         -2.55524: 0, -1.37983: 1, -0.71126: 2, -0.21712: 3,
         0.19268: 4, 0.52975: 5, 0.88113: 6, 1.29221: 7,
-        1.86203: 8, 2.90161: 9
+        1.86203: 8, 2.90161: 9, 2.90161: 10
     }
     inverse_impulsivite = {v: k for k, v in impulsivite_mapping.items()}
     user_data['Imuplsif'] = user_data['Imuplsif'].map(inverse_impulsivite)
