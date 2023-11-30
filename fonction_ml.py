@@ -195,7 +195,7 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
     user_data = pd.DataFrame(columns=data.columns)
 
     # Ajouter une seule ligne avec les données de l'utilisateur
-    user_data.loc[0] = [0] * 12 + [0] * len(drogues_col)
+    user_data.loc[0] = [0] * (12 + len(drogues_col))
 
     # Ajoute les colonnes Ethnie et Pays avec des valeurs constantes
     user_data['Ethnie'] = -0.31685
