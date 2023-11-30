@@ -67,7 +67,7 @@ for option in options_restantes:
     valeurs_sliders[option] = valeur_slider
     
 st.write("Valeurs des sliders :")
-st.write(valeurs_sliders)
+st.write(valeurs_sliders.keys)
 
 if st.button('Lancement du code :'):
     data_final=process_user_input(age, genre, education, neuroticisme, extraversion, exp, amicalite, conscience, impulsivite, recherche)
