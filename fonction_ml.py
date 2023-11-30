@@ -140,7 +140,7 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
         57: 2.61139, 58: 2.82196, 59: 3.27393, 60: 3.27393
     }
 
-    user_data['Neuroticisme'] = [neuro_mapping[i] for i in user_data['Neuroticisme']]
+    user_data['Névrotique'] = [neuro_mapping[i] for i in user_data['Névrotique']]
 
     extraversion_mapping = {
         0: -3.27393, 6: -3.27393, 12: -3.27393, 16: -3.27393, 18: -3.00537, 19: -2.72827, 20: -2.53830, 21: -2.44904,
@@ -154,7 +154,7 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
         58: 3.00537, 59: 3.27393, 60: 3.27393
     }
 
-    user_data['Extraversion'] = [extraversion_mapping[i] for i in user_data['Extraversion']]
+    user_data['Extraverti'] = [extraversion_mapping[i] for i in user_data['Extraverti']]
 
     ouverture_mapping = {
         0: -3.27393, 6: -3.27393, 12: -3.27393, 24: -3.27393, 26: -2.85950, 28: -2.63199, 29: -2.39883, 30: -2.21069,
@@ -166,7 +166,7 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
         56: 1.65653, 57: 1.88511, 58: 2.15324, 59: 2.44904, 60: 2.90161,
     }
 
-    user_data['Ouverture à l\'expérience'] = [ouverture_mapping[i] for i in user_data['Ouverture à l\'expérience']]
+    user_data['Ouvert à l\'expérience'] = [ouverture_mapping[i] for i in user_data['Ouvert à l\'expérience']]
 
     amicalite_mapping = {
         0: -3.46436, 6: -3.46436, 12: -3.46436, 16: -3.15735, 18: -3.00537, 23: -2.90161, 24: -2.78793,
@@ -180,7 +180,7 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
         60: 3.46436,
     }
 
-    user_data['Amicalité'] = [amicalite_mapping[i] for i in user_data['Amicalité']]
+    user_data['Amical'] = [amicalite_mapping[i] for i in user_data['Amical']]
 
     conscience_mapping = {
         0: -3.46436, 6: -3.46436, 12: -3.46436, 18: -3.46436, 17: -3.46436, 19: -3.15735, 20: -2.90161, 21: -2.72827, 22: -2.57309,
@@ -194,7 +194,7 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
         59: 3.46436, 60: 3.46436
     }
 
-    user_data['Conscience'] = [conscience_mapping[i] for i in user_data['Conscience']]
+    user_data['Consciencieux'] = [conscience_mapping[i] for i in user_data['Consciencieux']]
 
     sensations = {
         -2.07848: 0,
@@ -212,7 +212,7 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
 
     # Mapping inverse pour Recherche de sensations
     inverse_sensations = {v: k for k, v in sensations.items()}
-    user_data['Recherche de sensations'] = user_data['Recherche de sensations'].map(inverse_sensations)
+    user_data['En recherche de sensations'] = user_data['En recherche de sensations'].map(inverse_sensations)
 
     # Mapping inverse pour Impulsivité
     impulsivite_mapping = {
@@ -221,7 +221,7 @@ def process_user_input(data,age, genre, education, neuroticisme, extraversion, e
         1.86203: 8, 2.90161: 9
     }
     inverse_impulsivite = {v: k for k, v in impulsivite_mapping.items()}
-    user_data['Impulsivité'] = user_data['Impulsivité'].map(inverse_impulsivite)
+    user_data['Imuplsif'] = user_data['Imuplsif'].map(inverse_impulsivite)
 
     # Mapping pour 'Age'
     age_mapping = {
