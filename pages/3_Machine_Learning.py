@@ -69,3 +69,37 @@ with tab3:
 ####################################################################################################################
 st.divider()
 st.markdown("Observation a inserer + passage au grid_search")
+
+on_grid = st.toggle('Activate Automatisation search')
+if on:
+    param_grid = {
+        'C': [0.1, 1, 10, 100],             # Paramètre de régularisation
+        'gamma': [1, 0.1, 0.01, 0.001],     # Coefficient du noyau pour 'rbf', 'poly' et 'sigmoid'
+        'kernel': ['rbf', 'poly', 'sigmoid'] # Type de noyau
+    }
+else:
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.write("Regularisation parametre :")
+        c_param = st.radio(
+        "What is your C parameter",
+        [0.1, 1, 10,100])
+    
+    with col2:
+        st.write("Coefficient du noyau :")
+        g_param = st.radio(
+        "What is your Gamma parameter",
+        [1, 0.1, 0.01, 0.001])
+    with col3:
+        st.write("Type du noyau :")
+        k_param = st.radio(
+        "What is your kernel",
+        ['rbf', 'poly', 'sigmoid'])
+    param_grid = {
+        'C':c_param ,             # Paramètre de régularisation
+        'gamma':g_param ,     # Coefficient du noyau pour 'rbf', 'poly' et 'sigmoid'
+        'kernel': k_param # Type de noyau
+    }
+plt_g,y_pred_g,accuracy_g=grid_search_ml(features,target,param_grid)
+st.write(f'Accuracy: {accuracy_g * 100:.2f}%')
+st.pyplot(plt_g)
