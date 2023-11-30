@@ -102,8 +102,8 @@ def prepare_dataset_for_drug_prediction(dataframe, drug_name):
 
 def prediction_training_f(data,data_final,model,drug):
     data=prepare_dataset_for_drug_prediction(data,drug)
-    X = data_cannabis.drop(["Target","Consommation de Semeron"], axis=1)
-    Y = data_cannabis['Target']
+    X = data.drop(["Target","Consommation de Semeron"], axis=1)
+    Y = data['Target']
     
     model.fit(X, Y)
     y_pred = model.predict(data_final)
