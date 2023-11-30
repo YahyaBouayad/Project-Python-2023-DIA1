@@ -57,7 +57,7 @@ recherche = st.slider('Recherche de sensations', 0, 10, 1)
 st.markdown("drogue")
 st.divider()
 
-option_choisie = st.selectbox("Choisissez une option", drogues_col)
+option_choisie = st.selectbox("Choisissez une drogue que vous voullez tester:", drogues_col)
 options_restantes = [option for option in drogues_col if option != option_choisie]
 
 for option in options_restantes:
