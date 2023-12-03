@@ -18,7 +18,27 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn.metrics import mean_squared_error,r2_score
 import warnings
 warnings.filterwarnings('ignore')
-drogues_col=st.session_state['drogues_col']
+drogues_col = [
+    'Consommation d\'alcool',
+    'Consommation d\'amphétamines',
+    'Consommation d\'amyl',
+    'Consommation de benzodiazepine',
+    'Consommation de café',
+    'Consommation de cannabis',
+    'Consommation de chocolat',
+    'Consommation de cocaïne',
+    'Consommation de crack',
+    'Consommation d\'ecstasy',
+    'Consommation d\'héroïne',
+    'Consommation de ketamine',
+    'Consommation de drogues légales',
+    'Consommation de LSD',
+    'Consommation de meth',
+    'Consommation de champignons magiques',
+    'Consommation de nicotine',
+    'Consommation de Semeron',
+    'Consommation de VSA'
+]
 
 
 def prediction_training(features,target,model):
