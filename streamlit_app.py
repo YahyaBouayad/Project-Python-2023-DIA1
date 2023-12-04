@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import seaborn as sns
 from fonction_project import *
-from fonction_ml import *
+
 import warnings
 warnings.filterwarnings('ignore')
 #%% Traitement fichier 
@@ -73,7 +73,8 @@ if 'drogues_autorisées' not in st.session_state:
     st.session_state['drogues_autorisées'] = drogues_autorisées
 if 'drogues_illégales' not in st.session_state:
     st.session_state['drogues_illégales'] = drogues_illégales
-
+    
+from fonction_ml import *
 #%% Debut Page 
 
 # TITRE : 
