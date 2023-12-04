@@ -81,6 +81,14 @@ from fonction_ml import *
 st.title("Data Analysis for the drug data ")
 st.markdown("Project made by \n Yahya BOUAYAD,\n Hamza HALINE\n et Joshua BORNET")
 st.divider()
+
+"""
+
+Presentation of the raw data:
+We chose the dataset on the study done on the drug available on this link:
+
+"""
+st.link_button("Go to link :", "https://archive.ics.uci.edu/dataset/373/drug+consumption+quantified")
 if st.checkbox("Show raw data"):
     st.subheader('Addiction Raw data used')
     st.write(data)
