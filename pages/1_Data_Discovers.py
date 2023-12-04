@@ -6,7 +6,6 @@ import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import seaborn as sns
 from fonction_project import *
-from fonction_ml import *
 import warnings
 warnings.filterwarnings('ignore')
 #%% Traitement fichier 
