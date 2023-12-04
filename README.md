@@ -1,6 +1,6 @@
 # Drug consumption:
 By : Yahya Bouayad, Joshua Bornet and Hamza Haline
-Link of our streamlit: https://yahyabouayad-streamlit-example-streamlit-app-jdrtri.streamlit.app
+Link of our streamlit: [https://yahyabouayad-streamlit-example-streamlit-app-jdrtri.streamlit.app](https://project-python-2023-dia1-z3fisj78xpceogxu5smlaj.streamlit.app)
 ### Presentation of the raw data:
 
 We chose the dataset on the study done on the drug available on this link:
