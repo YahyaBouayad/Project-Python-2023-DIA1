@@ -88,7 +88,7 @@ Presentation of the raw data:
 We chose the dataset on the study done on the drug available on this link:
 
 """
-st.link_button("Go to link :", "https://archive.ics.uci.edu/dataset/373/drug+consumption+quantified")
+st.link_button("Go to link ", "https://archive.ics.uci.edu/dataset/373/drug+consumption+quantified")
 if st.checkbox("Show raw data"):
     st.subheader('Addiction Raw data used')
     st.write(data)
